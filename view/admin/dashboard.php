@@ -1,7 +1,10 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 <!-- Add Bootstrap CSS from CDN -->
-<link href="admin/assets/css" rel="stylesheet" />
+<link href="./assets/css/app.min.css" rel="stylesheet" />
+<link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="./assets/css/custom.min.css" rel="stylesheet" />
+<link href="./assets/css/icons.min.css" rel="stylesheet" />
 
 
 <head>
@@ -932,7 +935,7 @@
 
     <!-- JAVASCRIPT -->
     <?php
-    require_once "libs_js.php";
+    require_once "./libs_js.php";
     ?>
 
 </body>
