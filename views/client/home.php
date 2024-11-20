@@ -1,6 +1,5 @@
 <?php include_once ROOT_DIR . "views/client/header.php"; ?>
 
-
     <h1>Sản phẩm mới</h1>
     <div class="product-grid">
         <?php foreach ($tables as $table): ?>
