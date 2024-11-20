@@ -51,7 +51,7 @@
                 <li class="menu-title"><span data-key="t-menu">Quản lý</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Trang chủ</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -62,12 +62,22 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="" class="nav-link" data-key="t-sweet-alerts">
-                                    Danh sách
+                                    Bàn
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link" data-key="t-nestable-list">
-                                    Thêm mới
+                                    Ghế
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link" data-key="t-nestable-list">
+                                    Tủ
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link" data-key="t-nestable-list">
+                                    Combo bàn ghế
                                 </a>
                             </li>
                         </ul>
