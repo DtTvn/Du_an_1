@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="header-middle">
-            <img src="img/imgda1/logo.jpg" alt="Logo" class="logo">
+            <img src="img/imgda1/logo.jpg" alt="Logo" class="logo" style="width: 20%; height:100%">
             <ul class="nav-links">
                 <li><a href="#">Sản Phẩm</a></li>
                 <li><a href="#">Phòng</a></li>

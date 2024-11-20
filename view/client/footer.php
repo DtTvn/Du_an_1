@@ -2,7 +2,7 @@
         <div class="footer1">
             <div class="footer-connect">
                 <h3>KẾT NỐI VỚI NHÀ XINH</h3>
-                <img src="../images/imgda1/logo2.jpg" alt="Logo" class="logo">
+                <img src="img/imgda1/logo.jpg" alt="Logo" style="width: 200px; height: 90px; border-radius: 10px; object-fit: cover; border: 2px solid #ccc;">
                 <h4>FOLLOW US</h4>
                 <h5>Instagram-Youtube-Facebook</h5>
                 <button class="button">HỆ THỐNG CỬA HÀNG</button>
