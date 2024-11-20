@@ -11,16 +11,16 @@ class Category extends BaseModel{
     } 
     // thêm danh mục(category)
     public function create($data){
-        $sql = "INSERT INTO danhmucsanpham(CategoryName,type) VALUES(:CategoryName. :type, :Category)";
+        $sql = "INSERT INTO danhmucsanpham(CategoryName,type) VALUES(:CategoryName, :type)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }
     //Chi tiết 1 bản ghi
     public function find($id)
     {
-        $sql = "SELECT * FROM danhmucsanpham WHERE CategoryID=:id";
+        $sql = "SELECT * FROM danhmucsanpham WHERE CategoryID=:CategoryID";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id' => $id]);
+        $stmt->execute(['CategoryID' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

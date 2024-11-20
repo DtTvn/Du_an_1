@@ -3,18 +3,18 @@ class HomeController
 {
     public function index()
     {
-        //Lấy danh sách pets
-        // $product = new Product;
-        // $pets = $product->listPets();
-        // $list_products = $product->listOtherProduct();
+        // Lấy danh sách
+        $product = new Product;
+        $tables = $product->all();
+        
 
-        //Danh mục
         $categories = (new Category)->all();
-
+        $title = 'trang chủ website';
         return view(
             'client.home',
-            compact('pets', 'list_products', 'categories')
+            compact('tables','title', 'categories')
         );
     }
 }
+
 ?>

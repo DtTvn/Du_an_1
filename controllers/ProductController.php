@@ -20,7 +20,7 @@ class ProductController
 
         // Truyền dữ liệu vào view
         return view(
-            'client.sanpham.category',
+            'client.products.category',
             compact('products', 'categories', 'title')
         );
     }

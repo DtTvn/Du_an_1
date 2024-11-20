@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        
     <link rel="stylesheet" href="css/home.css">
 </head>
 
@@ -35,8 +36,8 @@
                         Sản phẩm
                     </a>
                     <ul class="dropdown-menu">
-                        <?php foreach ($categories as $cate): ?>
-                            <li><a class="dropdown-item" href="<?= ROOT_URL . '?ctl=category&id=' . $cate['CategoryID'] ?>">
+                        <?php foreach ($categories as $cate) : ?>
+                            <li><a class="dropdown-item" href="<?= ROOT_URL . '?ctl=category&CategoryID=' . $cate['CategoryID'] ?>">
                                     <?= $cate['CategoryName'] ?>
                                 </a></li>
                         <?php endforeach ?>

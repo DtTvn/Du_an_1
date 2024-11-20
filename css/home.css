@@ -175,10 +175,7 @@ body {
     border: 1px solid #A19999;
     width: 1440px;
     height: 800px;
-}
-.product-grids{
-    display: flex;
-    align-items: center;
+    
 }
 .product-card {
     border: 1px solid #A19999;
@@ -193,10 +190,6 @@ body {
 }
 .product-card .product-name{
     margin: 20px 10px;
-}
-.product-card .product-price{
-    margin: 20px 10px;
-    text-align: right;
 }
 .product-card button{
     border: 1px solid black;
