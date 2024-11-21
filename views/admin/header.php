@@ -25,7 +25,7 @@
                             <a class="nav-link" href="<?='?ctl=listsp' ?>">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= ADMIN_URL . '?ctl=listdm' ?>">Danh mục</a>
+                            <a class="nav-link" href="<?='?ctl=listdm' ?>">Danh mục</a>
                         </li>
 
                     </ul>

@@ -32,9 +32,8 @@
                                 <img src="<?= ROOT_URL . $spham['Image'] ?>" width="60px" alt="">
                             </td>
                             <td>
-
-                                <a href=""><input type="button" value="Sửa" /></a>
-                                <a href=""><input type="button" value="Xóa" /></a>
+                            <a href="<?= '?ctl=editsp&id=' . $spham['ProductID'] ?>" class="btn btn-primary">Edit</a>
+                            <a href="<?= ADMIN_URL . '?ctl=deletesp&id=' . $spham['ProductID'] ?>" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không?')">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach ?>

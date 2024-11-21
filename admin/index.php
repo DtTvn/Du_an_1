@@ -12,6 +12,8 @@
     $ctl = $_GET['ctl'] ?? '';
     match ($ctl) {
         ''  => view("admin.dashboard"),
-        'listsp' => (new AdminProductController)->index(),
+        'addsp' => (new AdminProductController) ->create(),
+        'listsp' => (new AdminProductController) ->index(),
+        'storre' => (new AdminProductController) ->store(),
         default => view("errors.404"),
     };
