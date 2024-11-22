@@ -1,6 +1,5 @@
 <?php
 //AdminProductController Điều sản phẩm
-<<<<<<< HEAD
     class AdminProductController {
         // Hàm index để hiển thị sản phẩm
         public function index() {
@@ -34,15 +33,6 @@
             header("location: " . ADMIN_URL . "?ctl=listsp");
         }
         //Hàm edit dùng để hiển thị form cập nhật
-=======
-class AdminProductController
-{
-    // Hàm index để hiển thị sản phẩm
-    public function index()
-    {
-        $sanpham = (new Product())->all();
-        return view("admin.products.list", compact('sanpham'));
->>>>>>> 8d6fd90706605db0c6c10ac666f66d8191d07cdb
     }
 
     // Hàm create hiển thị form thêm mới
