@@ -7,10 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-        
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
-
 <body>
     <header class="header">
         <div class="header-top">
@@ -29,8 +28,10 @@
             </div>
         </div>
         <div class="header-middle">
-            <img src="img/imgda1/logo.jpg" alt="Logo" class="logo">
-            <ul class="nav-links">
+            <a href="<?= ROOT_URL?>">
+            <img src="images/logo.jpg" alt="Logo" class="logo" >
+        </a>
+            <ul class="nav-links ">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Sản phẩm
@@ -49,75 +50,24 @@
                 <li><a href="#">Cửa hàng 360 độ</a></li>
                 <li><a href="#">Góc cảm hứng</a></li>
             </ul>
-            <div class="search">
-                <button class="button">Tìm kiếm sản phẩm<i
-                        class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+            <form class="d-flex align-items-center" role="search">
+                <div class="input-group">
+                    <input
+                        class="form-control"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                        id="keyword">
+                    <button
+                        class="btn"
+                        type="button"
+                        id="search"
+                        style="background-color: #000000; color: white;">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </form>
         </div>
     </header>
 
-    <div class="banner">
-        <img src="img/imgda1/banner.jpg" alt="Banner">
-    </div>
-
-    <div class="product-list">
-        <div class="product-item-wrapper1">
-            <div class="product-item1">
-                <img src="img/imgda1/img2.1.jpg" alt="SOFA">
-                <a href=""><h3>SOFA</h3></a>
-            </div>
-        </div>
-        <div class="product-item-wrapper">
-            <div>
-                <div class="product-item">
-                    <img src="img/imgda1/img2.2.jpg" alt="BÀN ĂN">
-                    <a href=""><h3>BÀN ĂN</h3></a>
-                </div>
-                <div class="product-item">
-                    <img src="img/imgda1/img2.3.jpg" alt="GIƯỜNG">
-                    <a href=""><h3>GIƯỜNG</h3></a>
-                </div>
-            </div>
-            <div>
-                <div class="product-item">
-                    <img src="img/imgda1/img2.4.jpg" alt="ARMCHAIR">
-                    <a href=""><h3>ARMCHAIR</h3></a>
-                </div>
-                <div class="product-item">
-                    <img src="img/imgda1/img2.5.jpg" alt="GHẾ ĂN">
-                    <a href=""><h3>GHẾ ĂN</h3></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="room-section">
-            <div class="image-container">
-                <img src="img/imgda1/img3.1.jpg" alt>
-            </div>
-            <div class="text-container">
-                <div class="text-container-content">
-                    <h3>Không gian phòng khách</h3>
-                    <h5>Phòng khách là không gian chính của ngôi <br> nhà,
-                        là nơi sum họp gia đình</h5>
-                    <h4>Mẫu thiết kế -></h4>
-                </div>
-                <img src="img/imgda1/img3.2.jpg" alt>
-            </div>
-        </div>
-        <div class="room-section">
-            <div class="text-container">
-                <img src="img/imgda1/img3.3.jpg" alt>
-                <div class="text-container-content">
-                    <h3>Không gian phòng khách</h3>
-                    <h5>Phòng khách là không gian chính của ngôi <br> nhà,
-                        là nơi sum họp gia đình</h5>
-                    <h4>Mẫu thiết kế -></h4>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="img/imgda1/img3.4.jpg" alt>
-            </div>
-        </div>
-    </div>
+   

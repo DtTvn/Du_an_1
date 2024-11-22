@@ -63,11 +63,12 @@ class Product extends BaseModel
         $stmt->execute(['ProductID' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-    //Xóa sản phẩm
-    public function delete($id)
+    //tìm kiếm sản phẩm theo tên
+    public function search($keyword = null)
     {
-        $sql = "DELETE FROM sanpham WHERE ProductID=:ProductID";
+        $sql = "SELECT * FROM sanpham WHERE ProductName LIKE '%$keyword%'";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['ProductID' => $id]);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
