@@ -29,11 +29,11 @@
                return $message;
           }
           //Hiện thị form update của danh mục
-          public function edit(){
-               $CategoryID = $_GET['CategoryID'];
-               $Category = (new Category)->find($CategoryID);
-               return view('admin.Categories.edit', compact('Category'));
-          }
+          // public function edit(){
+          //      $CategoryID = $_GET['CategoryID'];
+          //      $Category = (new Category)->find($CategoryID);
+          //      return view('admin.Categories.edit', compact('Category'));
+          // }
 
           //update 
           public function update(){
@@ -41,5 +41,18 @@
                (new Category())->update($data['CategoryID'],$data);
                $_SESSION['message'] = 'Cập Nhật Thành Công';
                header("location: ?ctl=editdm&id=" .$data['CategoryID']);
+          }
+          public function delete(){
+               $CategoryID = $_GET['CategoryID'];
+               $products = (new Product)->listProductInCategory($CategoryID);
+               if($products){
+                    $_SESSION['message'] = "khong the xoa vi co san pham";
+                    header("location: ?ctl=listdm");
+                    return;
+               }
+               (new Category)->delete($CategoryID);
+               $_SESSION['message'] = 'Xoa thanhf cong';
+               header("location: ?ctl=listdm");
+               return;
           }
      }

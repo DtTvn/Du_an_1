@@ -17,7 +17,7 @@ session_start();
         'listdm' => (new AdminCategoryController)->index(),
         'adddm' => (new AdminCategoryController)->create(),
         'storedm' => (new AdminCategoryController)->store(),
-        'editdm' => (new AdminCategoryController)->edit(),
         'updatedm' => (new AdminCategoryController)->update(),
+        'deletedm' => (new AdminCategoryController)->delete(),
         default => view("errors.404"),
     };

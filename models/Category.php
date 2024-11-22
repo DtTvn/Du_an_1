@@ -2,7 +2,7 @@
 class Category extends BaseModel{
     // danh sách category
     public function all(){
-        $sql = "SELECT * FROM danhmucsanpham WHERE soft_delete = 0";
+        $sql = "SELECT * FROM `danhmucsanpham`";
         $stmt = $this->conn->prepare($sql);
         // thực thi
         $stmt->execute();
@@ -16,28 +16,23 @@ class Category extends BaseModel{
         $stmt->execute($data);
     }
     //Chi tiết 1 bản ghi
-    public function find($CategoryID)
-    {
-        $sql = "SELECT * FROM danhmucsanpham WHERE CategoryID=:CategoryID";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['CategoryID' => $CategoryID]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    public function edit($CategoryID, $data )
-    {
-        $sql = "UPDATE `danhmucsanpham` SET CategoryName = :CategoryName WHERE CategoryID=:CategoryID ";
-        $stmt = $this->conn->prepare($sql);
-        $data['CategoryID'] = $CategoryID;
-        $stmt->execute($data);
-    }
+    // public function find($CategoryID)
+    // {
+    //     // $sql = "SELECT * FROM danhmucsanpham WHERE CategoryID=:CategoryID";
+    //     $sql = "SELECT `CategoryName` FROM `danhmucsanpham` WHERE `CategoryID`= ?";
+    //     $stmt = $this->conn->prepare($sql);
+    //     $stmt->execute(['CategoryID' => $CategoryID]);
+    //     return $stmt->fetch(PDO::FETCH_ASSOC);
+    // }
     public function update($CategoryID,$data){
         $sql = "UPDATE `danhmucsanpham` SET CategoryName=:CategoryName WHERE CategoryID=:CategoryID";
+        // $sql = "UPDATE `danhmucsanpham` SET `CategoryName`=? WHERE `CategoryName`= ?";
         $stmt = $this->conn->prepare($sql);
         $data['CategoryID'] = $CategoryID;
         $stmt->execute($data);
     }
     public function delete($CategoryID) {
-        $sql = "DELETE FROM `danhmucsanpham` WHERE CategoryID=:CategoryID";
+        $sql = "DELETE FROM `danhmucsanpham` WHERE $CategoryID= ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['CategoryID' => $CategoryID]);
     }

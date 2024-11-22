@@ -6,8 +6,11 @@
                <label for="" class="form-label">Tên Danh Mục</label>
                <input type="text" name="CategoryName" class="form-control" value="<?= $Category['CategoryName'] ?>">
           </div>
+
+          <!-- id danh mục -->
+          <input type="hidden" name="CategoryName" value="<?= $Category['CategoryID'] ?> ">;
           <div class="mb-3">
-               <button type="submit" class="btn btn-primary">Thêm mới</button>
+               <button type="submit" class="btn btn-primary">Cập Nhật</button>
           </div>
      </form>
 </div>

@@ -24,8 +24,8 @@
                     <th scope="row"><?= $Cate['CategoryID'] ?></th>
                     <td><?= $Cate['CategoryName'] ?></td>
                     <td>
-                         <a href="<?= '?ctl=editdm&id = '.$Cate['CategoryID'] ?>" class="btn-btn-primary">Sửa</a>
-                         <a href="<?= '?ctl=editdm&id = '.$Cate['CategoryID'] ?>" class="btn-btn-danger" onclick="return confirm ('Bạn cóa chắc muốn xóa không?')">Xóa</a>
+                         <a href="<?= '?ctl=updatedm&id = '.$Cate['CategoryID'] ?>" class="btn-btn-primary">Sửa</a>
+                         <a href="<?= '?ctl=deletedm&id = '.$Cate['CategoryID'] ?>" class="btn-btn-danger" onclick="return confirm ('Bạn cóa chắc muốn xóa không?')">Xóa</a>
                     </td>
                     
                </tr>
