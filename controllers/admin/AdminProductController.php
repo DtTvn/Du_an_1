@@ -1,38 +1,12 @@
 <?php
 //AdminProductController Điều sản phẩm
-    class AdminProductController {
-        // Hàm index để hiển thị sản phẩm
-        public function index() {
-            $sanpham = (new Product()) -> all();
-            return view("admin.products.list",compact('sanpham'));
-        }
-
-        // Hàm create hiển thị form thêm mới
-        public function create(){
-            $danhmucsanpham = (new Category) -> all();
-            $title = "Thêm sản phẩm"; 
-            return view("admin.products.add", compact('danhmucsanpham','title'));
-        }
-        // Hàm store dùng để lưu dữ liệu thêm vào database 
-        public function store(){
-            $data = $_POST;
-    
-            $image = ""; //Khi người dùng không upload ảnh
-            //Nếu người dùng upload hình ảnh
-            $file = $_FILES['image'];
-            if ($file['size'] > 0) {
-                //lấy ảnh
-                $image = "images/" . $file['name'];
-                //Upload ảnh
-                move_uploaded_file($file['tmp_name'], ROOT_DIR . $image);
-            }
-            //đưa ảnh vào $data
-            $data['image'] = $image;
-            $product = new Product;
-            $product->create($data);
-            header("location: " . ADMIN_URL . "?ctl=listsp");
-        }
-        //Hàm edit dùng để hiển thị form cập nhật
+class AdminProductController
+{
+    // Hàm index để hiển thị sản phẩm
+    public function index()
+    {
+        $sanpham = (new Product())->all();
+        return view("admin.products.list", compact('sanpham'));
     }
 
     // Hàm create hiển thị form thêm mới
@@ -96,18 +70,6 @@
         $product->update($data['id'], $data);
 
         header("location: " . ADMIN_URL . "?ctl=editsp&id=" . $data['id']);
-        die;
-    }
-    //Xóa sản phẩm
-    public function delete()
-    {
-        $id = $_GET['ProductID'];
-        //Xóa sp
-        (new Product)->delete($id);
-        //Session lưu thông báo khi xóa thành công
-        $_SESSION['message'] = "Xóa dữ liệu thành công";
-        //về giao diện hiển thị danh sách sp
-        header("location: " . ADMIN_URL . "?ctl=listsp");
         die;
     }
 }
