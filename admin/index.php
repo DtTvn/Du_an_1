@@ -14,6 +14,6 @@
         ''  => view("admin.dashboard"),
         'addsp' => (new AdminProductController) ->create(),
         'listsp' => (new AdminProductController) ->index(),
-        'storre' => (new AdminProductController) ->store(),
+        'storesp' => (new AdminProductController) ->store(),
         default => view("errors.404"),
     };
