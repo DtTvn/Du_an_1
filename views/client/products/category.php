@@ -4,7 +4,7 @@
     <a href="<?= ROOT_URL ?>">Trang chủ</a> >>
     <b><?= $title ?></b>
 </div>
-<? foreach ($products as $pro) : ?>
+<?php foreach ($products as $product) : ?>
     <h1>Sản phẩm mới</h1>
     <div class="product-grid">
         <div class="product-grids">
