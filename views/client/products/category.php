@@ -4,15 +4,15 @@
     <a href="<?= ROOT_URL ?>">Trang chủ</a> >>
     <b><?= $title ?></b>
 </div>
-<? foreach ($products as $pro) : ?>
     <h1>Sản phẩm mới</h1>
+<?php foreach ($products as $pro) : ?>
     <div class="product-grid">
         <div class="product-grids">
             <div class="product-card">
-                <img src="<?= $product['Image'] ?>" alt="Product Image">
-                <h4 class="product-name"><?= $product['ProductName'] ?></h4>
+                <img src="<?= $pro['Image'] ?>" alt="Product Image">
+                <h4 class="product-name"><?= $pro['ProductName'] ?></h4>
                 <h4 class="product-price">
-                    <?= $product['Price'] ?> vnđ
+                    <?= $pro['Price'] ?> vnđ
                 </h4>
                 <button class="add-to-cart">THÊM VÀO GIỎ</button>
                 <button class="view-details">XEM THÊM</button>
@@ -20,4 +20,4 @@
         </div>
     </div>
 <?php endforeach ?>
-<?php include_once ROOT_DIR . "views/client/footer.php" ?>
+<?php include_once ROOT_DIR . "views/client/footer.php" ?>  
