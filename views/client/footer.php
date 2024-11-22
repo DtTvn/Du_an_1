@@ -3,7 +3,7 @@
         <div class="footer-connect">
             <h3>KẾT NỐI VỚI NHÀ XINH</h3>
             <a href="<?= ROOT_URL?>">
-                <img src="img/imgda1/logo.jpg" alt="Logo" class="logo">
+                <img src="images/logo.jpg" alt="Logo" class="logo">
             </a>
             <h4>FOLLOW US</h4>
             <h5>Instagram-Youtube-Facebook</h5>

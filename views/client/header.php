@@ -29,7 +29,7 @@
         </div>
         <div class="header-middle">
             <a href="<?= ROOT_URL?>">
-            <img src="img/imgda1/logo.jpg" alt="Logo" class="logo" >
+            <img src="images/logo.jpg" alt="Logo" class="logo" >
         </a>
             <ul class="nav-links ">
                 <li class="nav-item dropdown">
