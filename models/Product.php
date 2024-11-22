@@ -34,5 +34,13 @@ class Product extends BaseModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+        //Thêm dữ liệu
+        public function create($data)
+        {
+            $sql = "INSERT INTO products(ProductName, Image, Price, Description, CategoryID, Material, Color, Dimensions) VALUES(:ProductName, :Image, :Price, :Description, :CategoryID, :Material, :Color, :Dimensions)";
+    
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($data);
+        }
 
 }
