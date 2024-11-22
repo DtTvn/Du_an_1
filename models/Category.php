@@ -16,11 +16,29 @@ class Category extends BaseModel{
         $stmt->execute($data);
     }
     //Chi tiết 1 bản ghi
-    public function find($id)
+    public function find($CategoryID)
     {
         $sql = "SELECT * FROM danhmucsanpham WHERE CategoryID=:CategoryID";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['CategoryID' => $id]);
+        $stmt->execute(['CategoryID' => $CategoryID]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function edit($CategoryID, $data )
+    {
+        $sql = "UPDATE `danhmucsanpham` SET CategoryName = :CategoryName WHERE CategoryID=:CategoryID ";
+        $stmt = $this->conn->prepare($sql);
+        $data['CategoryID'] = $CategoryID;
+        $stmt->execute($data);
+    }
+    public function update($CategoryID,$data){
+        $sql = "UPDATE `danhmucsanpham` SET CategoryName=:CategoryName WHERE CategoryID=:CategoryID";
+        $stmt = $this->conn->prepare($sql);
+        $data['CategoryID'] = $CategoryID;
+        $stmt->execute($data);
+    }
+    public function delete($CategoryID) {
+        $sql = "DELETE FROM `danhmucsanpham` WHERE CategoryID=:CategoryID";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['CategoryID' => $CategoryID]);
     }
 }
