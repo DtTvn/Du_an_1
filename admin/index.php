@@ -16,7 +16,6 @@ session_start();
         'addsp' => (new AdminProductController) ->create(),
         'listsp' => (new AdminProductController) ->index(),
         'storesp' => (new AdminProductController) ->store(),
-        'listsp' => (new AdminProductController)->index(),
         'listdm' => (new AdminCategoryController)->index(),
         'adddm' => (new AdminCategoryController)->create(),
         'storedm' => (new AdminCategoryController)->store(),
