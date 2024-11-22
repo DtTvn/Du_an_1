@@ -13,7 +13,9 @@ session_start();
     $ctl = $_GET['ctl'] ?? '';
     match ($ctl) {
         ''  => view("admin.dashboard"),
-        'listsp' => (new AdminProductController)->index(),
+        'addsp' => (new AdminProductController) ->create(),
+        'listsp' => (new AdminProductController) ->index(),
+        'storesp' => (new AdminProductController) ->store(),
         'listdm' => (new AdminCategoryController)->index(),
         'adddm' => (new AdminCategoryController)->create(),
         'storedm' => (new AdminCategoryController)->store(),
