@@ -1,74 +1,79 @@
 <?php
-
 class Product extends BaseModel
 {
-    //lấy toàn bộ sản phẩm
+    // Get all products with their category names
+    // Lấy tất cả sản phẩm kèm tên danh mục
     public function all()
     {
-        $sql = "SELECT p.*, c.CategoryName FROM sanpham p JOIN danhmucsanpham c ON p.CategoryID=c.CategoryID";
+        $sql = "SELECT p.*, c.CategoryName 
+                    FROM `products` p 
+                    JOIN categories c ON p.CategoryID = c.id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    //Lấy danh sách sản phẩm theo danh mục
-    //@id mã danh mục
+    // Lấy danh sách sản phẩm trong một danh mục
     public function listProductInCategory($id)
     {
-        $sql = "SELECT p.*, c.CategoryName FROM sanpham p JOIN danhmucsanpham c ON p.CategoryID=c.CategoryID WHERE c.CategoryID=:CategoryID";
+        $sql = "SELECT p.*, c.CategoryName 
+                    FROM `products` p 
+                    JOIN categories c ON p.CategoryID = c.id 
+                    WHERE c.id = :id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['CategoryID' => $id]);
+        $stmt->execute(['id' => $id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    // lấy sản phẩm là table (type =2)
-    public function listTable()
-    {
-        $sql = "SELECT p.*, c.CategoryName FROM sanpham p JOIN danhmucsanpham c ON p.CategoryID=c.CategoryID WHERE type=2 ORDER BY p.CategoryID DESC";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    //lấy sản phẩm ko phải table(type=1)
-    public function listOtherProduct()
-    {
-        $sql = "SELECT p.*, c.CategoryName FROM sanpham p JOIN danhmucsanpham c ON p.CategoryID=c.CategoryID WHERE type=1 ORDER BY p.CategoryID DESC LIMIT 8";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    //Thêm dữ liệu
+
+    // Các phương thức khác không cần thay đổi liên quan đến `CategoryID
+
+
+    // Add a new product
     public function create($data)
     {
-        $sql = "INSERT INTO products(ProductName, Image, Price, Description, CategoryID, Material, Color, Dimensions) VALUES(:ProductName, :Image, :Price, :Description, :CategoryID, :Material, :Color, :Dimensions)";
-        
-
+        $sql = "INSERT INTO `products`(`ProductName`, `CategoryID`, `Price`, 
+                `Description`, `Material`, `Color`, `Dimensions`, `Image`) 
+                VALUES (:ProductName, :CategoryID, :Price, :Description, 
+                :Material, :Color, :Dimensions, :Image)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }
-    //Cập nhật
+
+    // Update an existing product
     public function update($id, $data)
     {
-        $sql = "UPDATE sanphm SET ProductName=:ProductName, Image=:Image, Price=:Price, Description=:Description, CategoryID=:CategoryID, Material:Material, Color:Color, Dimensions:Dimensions WHERE ProductId=:ProductIDid";
-
+        $sql = "UPDATE `products` SET 
+                `ProductName` = :ProductName, 
+                `CategoryID` = :CategoryID, 
+                `Price` = :Price, 
+                `Description` = :Description, 
+                `Material` = :Material, 
+                `Color` = :Color, 
+                `Dimensions` = :Dimensions, 
+                `Image` = :Image 
+                WHERE `id` = :id";
         $stmt = $this->conn->prepare($sql);
-        //thêm id và mảng data
-        $data['ProductID'] = $id;
+        // Add `id` to the data array
+        $data['id'] = $id;
         $stmt->execute($data);
     }
-    //lấy ra 1 bản ghi
+
+    // Delete a product
+    public function delete($id)
+    {
+        $sql = "DELETE FROM `products` WHERE `id` = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+    }
+
+    // Find a product by its ID
     public function find($id)
     {
-        $sql = "SELECT * FROM sanpham WHERE ProductID=:ProductID";
+        $sql = "SELECT p.*, CategoryName FROM `products` p 
+                JOIN categories c ON p.Category_id = c.id 
+                WHERE p.id = :id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['ProductID' => $id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    //tìm kiếm sản phẩm theo tên
-    public function search($keyword = null)
-    {
-        $sql = "SELECT * FROM sanpham WHERE ProductName LIKE '%$keyword%'";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC); // Return the result
     }
 }

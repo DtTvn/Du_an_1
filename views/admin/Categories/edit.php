@@ -1,13 +1,13 @@
-<?php include_once ROOT_DIR . "views/admin/header.php" ?>
+<!-- <?php include_once ROOT_DIR . "views/admin/header.php" ?>
 
 <div class="container">
-     <form action="<?= '?ctl=updatedm' ?>" method="post">
+     <form action="<?= ADMIN_URL . '?ctl=updatedm' ?>" method="post">
           <div class="mb-3">
                <label for="" class="form-label">Tên Danh Mục</label>
-               <input type="text" name="CategoryName" class="form-control" value="<?= $Category['CategoryName'] ?>">
+               <input type="text" name="CategoryName" class="form-control" value="<?= $category['CategoryName'] ?>">
           </div>
 
-          <!-- id danh mục -->
+          <-- id danh mục -->
           <input type="hidden" name="CategoryName" value="<?= $Category['CategoryID'] ?> ">;
           <div class="mb-3">
                <button type="submit" class="btn btn-primary">Cập Nhật</button>
@@ -15,4 +15,4 @@
      </form>
 </div>
 
-<?php include_once ROOT_DIR . "views/admin/footer.php" ?>
+<?php include_once ROOT_DIR . "views/admin/footer.php" ?> -->

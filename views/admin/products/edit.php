@@ -4,14 +4,14 @@
     <form action="<?= ADMIN_URL . '?ctl=updatesp' ?>" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="">Tên sản phẩm</label>
-             <input type="text" name="ProductsName" value="<? $sanpham['ProductName'] ?>" id="" class="form-control">   
+            <input type="text" name="ProductsName" value="<? $sanpham['ProductName'] ?>" id="" class="form-control">   
         </div>
         <div class="mb-3">
             <label for="">Danh mục</label>
-            <select name="CategoryID" id="" class="form-control">
+            <select name="id" id="" class="form-control">
                 <?php foreach($danhmucsanpham as $cate): ?>
-                    <option value="<?= $cate['CategoryID'] ?>"
-                    <?= ($cate['CategoryID'] == $sanpham['CategoryID']) ? 'selected:' : ''
+                    <option value="<?= $cate['id'] ?>"
+                    <?= ($cate['id'] == $sanpham['id']) ? 'selected:' : ''
                     ?>>
                         <?= $cate['CategoryName'] ?>
                     </option>
@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="">Giá</label>
-             <input type="text" name="Price" value="<? $sanpham['Price'] ?>" id="" class="form-control">   
+            <input type="text" name="Price" value="<? $sanpham['Price'] ?>" id="" class="form-control">   
         </div>
         <div class="mb-3">
             <label for="">Mô tả sản phẩm</label>
@@ -28,7 +28,7 @@
         </div>
         <div class="mb-3">
             <label for="">Chất liệu</label>
-             <input type="text" name="Material" value="<? $sanpham['Material'] ?>" id="" class="form-control">   
+            <input type="text" name="Material" value="<? $sanpham['Material'] ?>" id="" class="form-control">   
         </div>
         <div class="mb-3">
             <label for="">Màu sắc</label>

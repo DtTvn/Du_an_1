@@ -7,19 +7,25 @@ session_start();
     require_once __DIR__ . "/../models/BaseModel.php";
     require_once __DIR__ . "/../models/Category.php";
     require_once __DIR__ . "/../models/Product.php";
+
     //include controller
+    require_once __DIR__ . "/../controllers/admin/DashboardController.php";
     require_once __DIR__ . "/../controllers/admin/AdminProductController.php";
     require_once __DIR__ . "/../controllers/admin/AdminCategoryController.php";
+    
     $ctl = $_GET['ctl'] ?? '';
     match ($ctl) {
-        ''  => view("admin.dashboard"),
-        'addsp' => (new AdminProductController) ->create(),
-        'listsp' => (new AdminProductController) ->index(),
-        'storesp' => (new AdminProductController) ->store(),
+        '' => (new DashboardController)->index(),
+        //Danh mục
         'listdm' => (new AdminCategoryController)->index(),
-        'adddm' => (new AdminCategoryController)->create(),
-        'storedm' => (new AdminCategoryController)->store(),
-        'updatedm' => (new AdminCategoryController)->update(),
-        'deletedm' => (new AdminCategoryController)->delete(),
+        // 'adddm' => (new AdminCategoryController)->create(),
+        // 'storedm' => (new AdminCategoryController)->store(),
+        // 'updatedm' => (new AdminCategoryController)->update(),
+        // 'deletedm' => (new AdminCategoryController)->delete(),
+
+        //Sản Phẩm
+        'listsp' => (new AdminProductController)->index(),
+        'addsp' => (new AdminProductController)->add(),
+        'storesp'=> (new AdminProductController)->store(),
         default => view("errors.404"),
     };

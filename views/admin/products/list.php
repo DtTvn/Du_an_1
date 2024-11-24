@@ -1,7 +1,7 @@
 <?php include_once ROOT_DIR . "views/admin/header.php" ?>
 <div class="page-content">
     <div class="container-fluid">
-        <div>
+        
             <table class="table">
                 <thead>
                     <tr>
@@ -18,22 +18,22 @@
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($sanpham as $spham) :
+                    foreach ($products as $pro) :
                     ?>
                         <tr>
-                            <th scope="row"><?= $spham['ProductID'] ?></th>
-                            <td><?= $spham['ProductName'] ?></td>
-                            <td><?= $spham['Price'] ?></td>
-                            <td><?= $spham['Material'] ?></td>
-                            <td><?= $spham['Color'] ?></td>
-                            <td><?= $spham['Dimensions'] ?></td>
-                            <td><?= $spham['CategoryName'] ?></td>
+                            <th scope="row"><?= $pro['id'] ?></th>
+                            <td><?= $pro['ProductName'] ?></td>
+                            <td><?= $pro['Price'] ?></td>
+                            <td><?= $pro['Material'] ?></td>
+                            <td><?= $pro['Color'] ?></td>
+                            <td><?= $pro['Dimensions'] ?></td>
+                            <td><?= $pro['CategoryName'] ?></td>
                             <td>
-                                <img src="<?= ROOT_URL . $spham['Image'] ?>" width="60px" alt="">
+                                <img src="<?= ROOT_URL . $pro['Image'] ?>" width="60px" alt="">
                             </td>
                             <td>
-                            <a href="<?= '?ctl=editsp&id=' . $spham['ProductID'] ?>" class="btn btn-primary">Edit</a>
-                            <a href="<?= ADMIN_URL . '?ctl=deletesp&id=' . $spham['ProductID'] ?>" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không?')">Xóa</a>
+                            <a href="<?= '?ctl=editsp&id=' . $pro['id'] ?>" class="btn btn-primary">Edit</a>
+                            <a href="<?= ADMIN_URL . '?ctl=deletesp&id=' . $pro['id'] ?>" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không?')">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach ?>
