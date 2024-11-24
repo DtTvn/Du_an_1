@@ -5,7 +5,7 @@ class ProductController
     // Hàm list sẽ lấy các sản phẩm theo danh mục
     public function list()
     {
-        $id = $_GET['CategoryID']; // ID danh mục
+        $id = $_GET['id']; // ID danh mục
         // Lấy sản phẩm theo danh mục
         $products = (new Product)->listProductInCategory($id);
         $title = '';
@@ -24,7 +24,7 @@ class ProductController
     //hiển thị chi tiết
     public function show()
     {
-        $id = $_GET['ProductID']; // id sanpham
+        $id = $_GET['id']; // id sanpham
         //Lấy ra sản phẩm theo id
         $product = (new Product)->find($id);
         //Lấy tên sản phẩm đưa và title

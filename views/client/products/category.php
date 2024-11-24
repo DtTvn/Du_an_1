@@ -4,8 +4,8 @@
     <a href="<?= ROOT_URL ?>">Trang chủ</a> >>
     <b><?= $title ?></b>
 </div>
-<?php foreach ($products as $product) : ?>
     <h1>Sản phẩm mới</h1>
+<?php foreach ($products as $product) : ?>
     <div class="product-grid">
         <div class="product-grids">
             <div class="product-card">
@@ -20,4 +20,4 @@
         </div>
     </div>
 <?php endforeach ?>
-<?php include_once ROOT_DIR . "views/client/footer.php" ?>
+<?php include_once ROOT_DIR . "views/client/footer.php" ?>  

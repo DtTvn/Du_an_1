@@ -38,7 +38,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <?php foreach ($categories as $cate) : ?>
-                            <li><a class="dropdown-item" href="<?= ROOT_URL . '?ctl=category&CategoryID=' . $cate['CategoryID'] ?>">
+                            <li><a class="dropdown-item" href="<?= ROOT_URL . '?ctl=category&id=' . $cate['id'] ?>">
                                     <?= $cate['CategoryName'] ?>
                                 </a></li>
                         <?php endforeach ?>
