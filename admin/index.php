@@ -18,14 +18,17 @@ session_start();
         '' => (new DashboardController)->index(),
         //Danh mục
         'listdm' => (new AdminCategoryController)->index(),
-        // 'adddm' => (new AdminCategoryController)->create(),
-        // 'storedm' => (new AdminCategoryController)->store(),
-        // 'updatedm' => (new AdminCategoryController)->update(),
+        'adddm' => (new AdminCategoryController)->create(),
+        'storedm' => (new AdminCategoryController)->store(),
+        'updatedm' => (new AdminCategoryController)->update(),
         // 'deletedm' => (new AdminCategoryController)->delete(),
+        'editdm' => (new AdminCategoryController)->edit(),
 
         //Sản Phẩm
         'listsp' => (new AdminProductController)->index(),
         'addsp' => (new AdminProductController)->add(),
         'storesp'=> (new AdminProductController)->store(),
+        'editsp'=> (new AdminProductController)->edit(),
+        'deletesp' => (new AdminProductController)->delete(),
         default => view("errors.404"),
     };

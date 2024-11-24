@@ -69,11 +69,21 @@ class Product extends BaseModel
     // Find a product by its ID
     public function find($id)
     {
-        $sql = "SELECT p.*, CategoryName FROM `products` p 
-                JOIN categories c ON p.Category_id = c.id 
+        $sql = "SELECT p.*, c.CategoryName 
+                FROM `products` p 
+                JOIN `Categories` c ON p.category_id = c.id 
                 WHERE p.id = :id";
+        
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id' => $id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC); // Return the result
+        
+        try {
+            $stmt->execute(['id' => $id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC); // Trả về kết quả nếu có
+        } catch (PDOException $e) {
+            // Xử lý lỗi, ghi log hoặc trả thông báo lỗi rõ ràng
+            error_log("Error in find method: " . $e->getMessage());
+            return false; // Hoặc trả về thông báo lỗi tùy ý
+        }
     }
+    
 }

@@ -1,15 +1,16 @@
 <?php include_once ROOT_DIR . "views/admin/header.php" ?>
+<!-- <?php print_r($Categories) ?> -->
 
 <div>
     <form action="<?= ADMIN_URL . '?ctl=storesp' ?>" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="" class="form-label">Tên sản phẩm</label>
-            <input type="text" name="ProductsName" id="" class="form-control">   
+            <input type="text" name="ProductName" id="" class="form-control">   
         </div>
         <div class="mb-3">
             <label for="">Danh mục</label>
             <select name="id" id="" class="form-control">
-                <?php foreach($categories as $cate): ?>
+                <?php foreach($Categories as $cate): ?>
                     <option value="<?= $cate['id'] ?>">
                         <?= $cate['CategoryName'] ?>
                     </option>
@@ -34,7 +35,7 @@
         </div>
         <div class="mb-3">
             <label for="">Kích thước </label>
-            <input type="number" name="Demensions" id="" class="form-control">
+            <input type="number" name="Dimensions" id="" class="form-control">
         </div>
         <div class="mb-3">
             <label for="">Hình ảnh</label>

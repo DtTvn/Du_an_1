@@ -31,7 +31,7 @@
         // Phương thức find tìm danh mục theo id 
         // id mã danh mục cần tìm
         public function find($id){
-            $sql = "SELECT * FROM `categories` WHERE id=:id";
+            $sql = "SELECT * FROM `categories` WHERE $id=:id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(['id' => $id]);
             return $stmt->fetch(PDO::FETCH_ASSOC);

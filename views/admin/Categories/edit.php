@@ -1,4 +1,4 @@
-<!-- <?php include_once ROOT_DIR . "views/admin/header.php" ?>
+<?php include_once ROOT_DIR . "views/admin/header.php" ?>
 
 <div class="container">
      <form action="<?= ADMIN_URL . '?ctl=updatedm' ?>" method="post">
@@ -10,9 +10,9 @@
           <-- id danh mục -->
           <input type="hidden" name="CategoryName" value="<?= $Category['CategoryID'] ?> ">;
           <div class="mb-3">
-               <button type="submit" class="btn btn-primary">Cập Nhật</button>
+               <button type="submit" class="btn btn-primary" >Thêm mới</button>
           </div>
      </form>
 </div>
 
-<?php include_once ROOT_DIR . "views/admin/footer.php" ?> -->
+<?php include_once ROOT_DIR . "views/admin/footer.php" ?>
