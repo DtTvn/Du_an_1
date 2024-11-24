@@ -21,7 +21,7 @@
                     foreach ($sanpham as $spham) :
                     ?>
                         <tr>
-                            <th scope="row"><?= $spham['ProductID'] ?></th>
+                            <th scope="row"><?= $spham['id'] ?></th>
                             <td><?= $spham['ProductName'] ?></td>
                             <td><?= $spham['Price'] ?></td>
                             <td><?= $spham['Material'] ?></td>
@@ -32,8 +32,8 @@
                                 <img src="<?= ROOT_URL . $spham['Image'] ?>" width="60px" alt="">
                             </td>
                             <td>
-                            <a href="<?= '?ctl=editsp&id=' . $spham['ProductID'] ?>" class="btn btn-primary">Edit</a>
-                            <a href="<?= ADMIN_URL . '?ctl=deletesp&id=' . $spham['ProductID'] ?>" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không?')">Xóa</a>
+                            <a href="<?= '?ctl=editsp&id=' . $spham['id'] ?>" class="btn btn-primary">Edit</a>
+                            <a href="<?= ADMIN_URL . '?ctl=deletesp&id=' . $spham['id'] ?>" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không?')">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach ?>

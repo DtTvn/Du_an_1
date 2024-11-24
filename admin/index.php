@@ -7,19 +7,15 @@ session_start();
     require_once __DIR__ . "/../models/BaseModel.php";
     require_once __DIR__ . "/../models/Category.php";
     require_once __DIR__ . "/../models/Product.php";
+
     //include controller
+    require_once __DIR__ . "/../controllers/admin/DashboardController.php";
     require_once __DIR__ . "/../controllers/admin/AdminProductController.php";
     require_once __DIR__ . "/../controllers/admin/AdminCategoryController.php";
+    
     $ctl = $_GET['ctl'] ?? '';
     match ($ctl) {
-        ''  => view("admin.dashboard"),
-        'addsp' => (new AdminProductController) ->create(),
-        'listsp' => (new AdminProductController) ->index(),
-        'storesp' => (new AdminProductController) ->store(),
+        '' => (new DashboardController)->index(),
         'listdm' => (new AdminCategoryController)->index(),
-        'adddm' => (new AdminCategoryController)->create(),
-        'storedm' => (new AdminCategoryController)->store(),
-        'editdm' => (new AdminCategoryController)->edit(),
-        'updatedm' => (new AdminCategoryController)->update(),
-        default => view("errors.404"),
+        // default => view("errors.404"),
     };
