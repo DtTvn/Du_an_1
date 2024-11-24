@@ -1,17 +1,13 @@
-<?php 
-    //Class BaseModel chứa thôgn tin kết nối
-    class BaseModel 
-    {
-        //Biến conn lưu trữ thông tin kết nối
+<?php
+    class BaseModel {
         public $conn = null;
-
-        //Ham khởi tạo
-        public function __construct()
-        {
-            try{
-                $this->conn = new PDO("mysql:host=" . HOST ."; dbname=" . DBNAME . ";charset=utf8; port=" . PORT, USERNAME, PASSWORD);
-            }catch(PDOException $e){
-                echo "Loi ket noi co so du lieu" . $e->getMessage();
+        
+        public function __construct() {
+            try {
+                $this->conn = new PDO("mysql:host=localhost; dbname=du_an1; charset=utf8; port=3306", "root", "");
+                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                echo "Lỗi kết nối CSDL: ". $e->getMessage();
             }
         }
     }
