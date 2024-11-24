@@ -6,7 +6,7 @@
             $sql = "SELECT * FROM categories";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         //Phương thức create tạo mới dữ liệu

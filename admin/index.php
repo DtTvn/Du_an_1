@@ -17,5 +17,9 @@ session_start();
     match ($ctl) {
         '' => (new DashboardController)->index(),
         'listdm' => (new AdminCategoryController)->index(),
+        'adddm' => (new AdminCategoryController)->create(),
+        'storedm' => (new AdminCategoryController)->store(),
+        'editdm' => (new AdminCategoryController)->edit(),
+        'updatedm' => (new AdminCategoryController)->update(),
         // default => view("errors.404"),
     };
