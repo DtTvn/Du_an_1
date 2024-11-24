@@ -1,7 +1,7 @@
 <?php 
     // Model Category thao tác với categories 
     class Category extends BaseModel{
-        // Phuong thuc  all lấy ra tòa bộ dữ liệu bảng catefories 
+        // Phuong thuc  all lấy ra tòa bộ dữ liệu bảng categories 
         public function all(){
             $sql = "SELECT * FROM categories";
             $stmt = $this->conn->prepare($sql);
@@ -21,7 +21,7 @@
         //@id: ma danh muc
         //@data: mang du lieu cap nhap
         public function update($id, $data){
-            $sql = "UPDATE `categories` SET `CategoryName`='CategoryName' WHERE id=:id";
+            $sql = "UPDATE categories SET CategoryName=:CategoryName WHERE id=:id";
             $stmt = $this->conn->prepare($sql);
             //Thêm id va data
             $data['id'] = $id;

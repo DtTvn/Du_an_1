@@ -21,5 +21,6 @@ session_start();
         'storedm' => (new AdminCategoryController)->store(),
         'editdm' => (new AdminCategoryController)->edit(),
         'updatedm' => (new AdminCategoryController)->update(),
+        'deletedm' => (new AdminCategoryController)->delete(),
         // default => view("errors.404"),
     };
