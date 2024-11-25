@@ -9,7 +9,7 @@
         </div>
         <div class="mb-3">
             <label for="">Danh mục</label>
-            <select name="id" id="" class="form-control">
+            <select name="CategoryID" id="" class="form-control">
                 <?php foreach($Categories as $cate): ?>
                     <option value="<?= $cate['id'] ?>">
                         <?= $cate['CategoryName'] ?>
