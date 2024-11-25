@@ -4,8 +4,9 @@
             $categories  = (new Category)->all();
             //Lây thông báo từ session
             $message =session_flash('message');
+            $type =session_flash('type');
 
-            return view('admin.categories.list',compact('categories', 'message'));
+            return view('admin.categories.list',compact('categories', 'message', "type"));
         }
 
         //Form them danh muc
@@ -35,8 +36,8 @@
         public function update() {
             $data = $_POST;
             (new Category)->update($data['id'], $data);
-            $_SESSION['message'] = "Cap nhap du lieu thanh cong";
-            header("location: " . ADMIN_URL . '?ctl=editdm&id=' .$data['id']);
+            $_SESSION['message'] = "Cập nhập dữ liệu thành công";
+            header("location: " . ADMIN_URL . '?ctl=listdm');
         }
 
         //Xoa 
@@ -45,7 +46,8 @@
             // Kiem tra xem du lieu cua products thuoc category khong
             $products = (new Product)->listProductInCategory($id);
             if($products){
-                $_SESSION['message']="Khong the xoa vi co san pham cua danh muc";
+                $_SESSION['message']="Không thể xóa vì có sản phẩm của danh mục";
+                $_SESSION['type'] = "danger";
                 header("Location:" . ADMIN_URL . "?ctl=listdm");
                 return;
             }

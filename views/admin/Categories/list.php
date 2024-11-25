@@ -1,11 +1,24 @@
 <?php include_once ROOT_DIR . "views/admin/header.php" ?>
 
 <div class="container">
-     <?php if ($message != ''): ?>
-          <div class="alert alert-success">
-               <?= $message ?>
-          </div>
-     <?php endif ?>
+     <?php
+     if ($message) {
+          if ($type) {
+     ?>
+               <div class="alert alert-<?php echo $type ?>">
+                    <?= $message ?>
+               </div>
+          <?php
+          } else {
+          ?>
+               <div class="alert alert-success">
+                    <?= $message ?>
+               </div>
+     <?php
+          }
+     }
+
+     ?>
      <table class="table">
           <thead>
                <tr>
@@ -17,7 +30,7 @@
                </tr>
           </thead>
           <tbody>
-               <?php 
+               <?php
                foreach ($categories as $cate) :
                ?>
                     <tr>
@@ -29,7 +42,7 @@
                          </td>
                     </tr>
                <?php endforeach ?>
-          </tbody>
+               
      </table>
 </div>
 
