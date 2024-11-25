@@ -16,11 +16,19 @@ session_start();
     $ctl = $_GET['ctl'] ?? '';
     match ($ctl) {
         '' => (new DashboardController)->index(),
+        //Danh mục
         'listdm' => (new AdminCategoryController)->index(),
         'adddm' => (new AdminCategoryController)->create(),
         'storedm' => (new AdminCategoryController)->store(),
         'editdm' => (new AdminCategoryController)->edit(),
         'updatedm' => (new AdminCategoryController)->update(),
         'deletedm' => (new AdminCategoryController)->delete(),
-        // default => view("errors.404"),
+        //Sản Phẩm
+        'listsp' => (new AdminProductController)->index(),
+        'addsp' => (new AdminProductController)->add(),
+        'storesp'=> (new AdminProductController)->store(),
+        'editsp'=> (new AdminProductController)->edit(),
+        'updatesp' => (new AdminProductController)->update(),
+        'deletesp' => (new AdminProductController)->delete(),
+        default => view("errors.404"),
     };

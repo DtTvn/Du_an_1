@@ -22,7 +22,7 @@
             $_SESSION['message'] = "Thêm dữ liệu thanh công";
             //chuyển hướng về danh sách
             header("Location: ?ctl=listdm");
-       }
+        }
 
         //Hien thi form edit
         public function edit(){
