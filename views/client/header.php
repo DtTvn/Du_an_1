@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
+
 <body>
     <header class="header">
         <div class="header-top">
@@ -28,9 +29,9 @@
             </div>
         </div>
         <div class="header-middle">
-            <a href="<?= ROOT_URL?>">
-            <img src="images/logo.jpg" alt="Logo" class="logo" >
-        </a>
+            <a href="<?= ROOT_URL ?>">
+                <img src="images/logo.jpg" alt="Logo" class="logo">
+            </a>
             <ul class="nav-links ">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,5 +70,3 @@
             </form>
         </div>
     </header>
-
-   

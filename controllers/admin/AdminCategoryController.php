@@ -36,7 +36,7 @@
         public function update() {
             $data = $_POST;
             (new Category)->update($data['id'], $data);
-            $_SESSION['message'] = "Cập nhập dữ liệu thành công";
+            $_SESSION['message'] = "Cap nhap du lieu thanh cong";
             header("location: " . ADMIN_URL . '?ctl=listdm');
         }
 

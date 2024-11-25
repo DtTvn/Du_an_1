@@ -4,7 +4,11 @@ class AdminProductController
   public function index()
   {
     $products = (new Product)->all();
-    return view('admin.products.list', compact('products'));
+    //Lây thông báo từ session
+    $message = session_flash('message');
+    $type = session_flash('type');
+
+    return view('admin.products.list', compact('products','message', "type"));
   }
 
   //Form thêm

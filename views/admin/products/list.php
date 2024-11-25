@@ -1,7 +1,23 @@
 <?php include_once ROOT_DIR . "views/admin/header.php" ?>
 <div class="page-content">
+     <?php
+     if ($message) {
+          if ($type) {
+     ?>
+               <div class="alert alert-<?php echo $type ?>">
+                    <?= $message ?>
+               </div>
+          <?php
+          } else {
+          ?>
+               <div class="alert alert-success">
+                    <?= $message ?>
+               </div>
+     <?php
+          }
+     }
+     ?>
     <div class="container-fluid">
-        
             <table class="table">
                 <thead>
                     <tr>
