@@ -21,7 +21,7 @@
             <div class="menu">
                 <h4>Giới thiệu</h4>
                 <h4>Khuyến mãi</h4>
-                <h4>Giảm giá đặc biệt</h4>
+                <h4 class="sales">Giảm giá đặc biệt</h4>
             </div>
             <div class="cart">
                 <i class="fa-solid fa-cart-shopping"></i>

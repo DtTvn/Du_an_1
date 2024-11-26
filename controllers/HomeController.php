@@ -5,8 +5,8 @@ class HomeController
     {
         // Lấy danh sách
         $product = new Product;
-        $tables = $product->all();
-        $list_products = $product -> listOtherProduct();
+        $tables = $product->listOtherProduct();
+        // $list_products = $product -> listOtherProduct();
 
         $categories = (new Category)->all();
         $title = 'trang chủ website';
