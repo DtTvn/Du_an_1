@@ -27,6 +27,7 @@
                 <i class="fa-solid fa-cart-shopping"></i>
                     <i>
                         <a class="fa-regular fa-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?= $_SESSION['user']['FullName'] ?? '' ?>
                         </a>
                         <ul class="dropdown-menu">
                             <?php if(isset($_SESSION['user'])) : ?>
