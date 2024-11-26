@@ -4,7 +4,7 @@
     <a href="<?= ROOT_URL ?>">Trang chủ</a> >>
     <b><?= $title ?></b>
 </div>
-<h1>Sản phẩm mới</h1>
+<h1>Sản phẩm</h1>
 <?php foreach ($products as $product) : ?>
     <div class="product-grid">
         <div class="product-grids">
@@ -12,7 +12,7 @@
                 <img src="<?= $product['Image'] ?>" alt="Product Image">
                 <h4 class="product-name"><?= $product['ProductName'] ?></h4>
                 <h4 class="product-price">
-                    <?= $product['Price'] ?> vnđ
+                    <?= $product['Price'] ?> VND
                 </h4>
                 <button class="add-to-cart">THÊM VÀO GIỎ</button>
                 <a href="<?= ROOT_URL . '?ctl=detail&id=' . $product['id']?>">
