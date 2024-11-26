@@ -1,7 +1,6 @@
 <?php
-//Hàm ender view
-function view($path_view, $data = [])
-{
+//Hàm render view
+function view($path_view, $data=[]){
     extract($data);
     $path_view = str_replace(".", "/", $path_view);
     include_once ROOT_DIR . "views/$path_view.php";
@@ -14,10 +13,10 @@ function dd($data)
     var_dump($data);
     echo "</pre>";
 }
-// //Ham session_flash se huy session ngay lap tuc
-// function session_flash($key){
-//     $message = $_SESSION[$key] ?? '';
-//     unset($_SESSION[$key]);
-//     return $message;
-// }
+//Ham session_flash se huy session ngay lap tuc
+function session_flash($key){
+    $message = $_SESSION[$key] ?? '';
+    unset($_SESSION[$key]);
+    return $message;
+}
 ?>

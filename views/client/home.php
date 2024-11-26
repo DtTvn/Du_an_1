@@ -11,7 +11,7 @@
                     <?= number_format($table['Price']) ?> vnđ
                 </h4>
                 <button class="add-to-cart">THÊM VÀO GIỎ</button>
-                <a href="<?= ROOT_URL . '?ctl=detail&ProductID=' . $table['ProductID'] ?>">
+                <a href="<?= ROOT_URL . '?ctl=detail&id=' . $table['id'] ?>">
                     <button class="view-details">XEM THÊM</button>
                 </a>
             </div>

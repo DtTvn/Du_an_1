@@ -77,4 +77,20 @@ class Product extends BaseModel
                 $stmt->execute(['id' => $id]);
                 return $stmt->fetch(PDO ::FETCH_ASSOC);
     }
+    //lấy sản phẩm ko phải table(type=1)
+    public function listOtherProduct()
+    {
+        $sql = "SELECT p.*, c.CategoryName FROM products p JOIN categories c ON p.CategoryID=c.id ORDER BY p.id DESC LIMIT 8";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    //tìm kiếm sản phẩm theo tên
+    public function search($keyword = null)
+    {
+        $sql = "SELECT * FROM products WHERE ProductName LIKE '%$keyword%'";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

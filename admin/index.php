@@ -18,6 +18,12 @@ session_start();
         '' => (new DashboardController)->index(),
         //Danh mục
 
+        'listdm' => (new AdminCategoryController)->index(),
+        'adddm' => (new AdminCategoryController)->create(),
+        'storedm' => (new AdminCategoryController)->store(),
+        'editdm' => (new AdminCategoryController)->edit(),
+        'updatedm' => (new AdminCategoryController)->update(),
+        'deletedm' => (new AdminCategoryController)->delete(),
         //Sản Phẩm
         'listsp' => (new AdminProductController)->index(),
         'addsp' => (new AdminProductController)->add(),
