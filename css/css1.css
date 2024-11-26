@@ -175,6 +175,7 @@
 }
 
 .product-card {
+    display: flex;
     border: 1px solid #ddd; /* Viền xung quanh mỗi sản phẩm */
     padding: 15px; /* Khoảng cách bên trong thẻ sản phẩm */
     text-align: center; /* Canh giữa nội dung */

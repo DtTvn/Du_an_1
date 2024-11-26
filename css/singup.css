@@ -39,8 +39,8 @@ body {
      flex-direction: column;
      align-items: center;
      justify-content: center;
-     width: 600px;
-     padding: 60px 100px;
+     width: 630px;
+     padding: 50px 100px;
      background-color: var(--color-bg);
      border-radius: 25px;
      box-shadow: 0px 4px 20px var(--color-shadow);
@@ -50,7 +50,6 @@ body {
      font-size: 50px;
      color: var(--color-text);
      letter-spacing: 3px;
-     margin-bottom: 25px;
      text-align: center;
 }
 
@@ -91,8 +90,8 @@ body {
 }
 
 .box-user i {
-     width: 55px;
-     height: 65px;
+     width: 100px;
+     height: 45px;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -103,7 +102,7 @@ body {
 
 .user {
      flex-grow: 1;
-     height: 65px;
+     height: 45px;
      padding: 0 15px;
      font-size: 16px;
      border: var(--color-input-border);
@@ -143,7 +142,7 @@ body {
      margin: 10px;
      width: 100%;
      max-width: 250px;
-     padding: 10px 20px;
+     padding: 10px 30px;
      font-size: 20px;
      text-transform: uppercase;
      border: none;
