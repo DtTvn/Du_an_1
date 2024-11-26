@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="css/singup.css">
+<div class="all-container">
+     <div class="box-login">
+          <h2>Đăng ký</h2>
+          <div class="box-login-icon">
+               <a href="">
+                    <i class="fa-brands fa-facebook"></i>
+               </a>
+               <a href="">
+                    <i class="fa-brands fa-google"></i>
+               </a>
+               <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+               </a>
+          </div>
+          <div class="noti">Điền đầy đủ Thông Tin vào cho tao</div>
+          <form action="<?= ROOT_URL . '?ctl=register' ?>" method="POST">
+               <div class="box-input">
+                    <div class="box-user">
+                         <i class="fa-solid fa-user"></i>
+                         <input class="user" type="text" name="fullname" placeholder="Nhập họ tên">
+                    </div>
+                    <div class="box-user">
+                         <i class="fa-solid fa-envelope"></i>
+                         <input class="user" type="email" name="email" placeholder="Nhập email">
+                    </div>
+                    <div class="box-user">
+                         <i class="fa-solid fa-lock"></i>
+                         <input class="user" type="password" name="password" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="box-user">
+                         <i class="fa-solid fa-phone"></i>
+                         <input class="user" type="text" name="phone" placeholder="Nhập số điện thoại">
+                    </div>
+                    <div class="box-user">
+                         <i class="fa-solid fa-location-dot"></i>
+                         <input class="user" type="text" name="address" placeholder="Nhập địa chỉ">
+                    </div>
+               </div>
+               <div class="button-login">
+                    <button type="submit">Đăng ký</button>
+               </div>
+          </form>
+     </div>
+</div>

@@ -32,7 +32,6 @@
         </div>
     </div>
     <div class="footer2">
-        <hr>
         <h5>© 2021 - Bản quyền của Nhà Xinh - thương hiệu thuộc AKA
             Furniture
             <br>Từ năm 1999 - thương hiệu đăng ký số 284074 Cục sở hữu

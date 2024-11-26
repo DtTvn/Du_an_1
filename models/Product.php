@@ -5,9 +5,7 @@ class Product extends BaseModel
     // Lấy tất cả sản phẩm kèm tên danh mục
     public function all()
     {
-        $sql = "SELECT p.*, c.CategoryName 
-                    FROM `products` p 
-                    JOIN categories c ON p.CategoryID = c.id";
+        $sql = "SELECT p.*, c.CategoryName FROM `products` p JOIN categories c ON p.CategoryID = c.id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +78,7 @@ class Product extends BaseModel
     //lấy sản phẩm ko phải table(type=1)
     public function listOtherProduct()
     {
-        $sql = "SELECT p.*, c.CategoryName FROM products p JOIN categories c ON p.CategoryID=c.id ORDER BY p.id DESC LIMIT 8";
+        $sql = "SELECT p.*, c.CategoryName FROM products p JOIN categories c ON p.CategoryID=c.id ORDER BY c.id DESC LIMIT 8";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

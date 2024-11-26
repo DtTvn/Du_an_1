@@ -8,7 +8,7 @@
                 <img src="<?= $table['Image'] ?>" alt="Product Image">
                 <h4 class="product-name"><?= $table['ProductName'] ?></h4>
                 <h4 class="product-price">
-                    <?= number_format($table['Price']) ?> vnđ
+                    <?= number_format($table['Price']) ?> đ
                 </h4>
                 <button class="add-to-cart">THÊM VÀO GIỎ</button>
                 <a href="<?= ROOT_URL . '?ctl=detail&id=' . $table['id'] ?>">

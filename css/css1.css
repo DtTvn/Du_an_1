@@ -1,0 +1,226 @@
+*{
+    margin: 0 auto;
+    padding: 0px;
+    box-sizing: border-box;
+    
+}
+.header-top{
+    border: 1px solid #A19999;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-top .phone{
+    margin:0;
+    padding: 0 40px;
+}
+.header-top .menu{
+    display: flex;
+    justify-content: space-between;
+}
+.header-top .menu h4{
+    margin: 20px;
+}
+.header-top .cart{
+    padding: 0 40px;
+}
+/* header-middle */
+.header-middle{
+    /* border: 1px solid #A19999; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1440px;
+    height: 80px;
+}
+.header-middle img{
+    width: 160px;
+    height: 50px;
+    margin-right: 20px;
+    padding: 0 40px;
+}
+/* Phan menu tim kiem */
+/* .header-middle ul{
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+.header-middle ul li a{
+    color: black;
+    text-decoration: none;
+} */
+.header-middle .search button{
+    border: 1px solid #D9D9D9;
+    background-color: #D9D9D9;
+    width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+}
+.header-middle .search{
+    padding: 0 40px;
+}
+
+/* banner */
+.banner img{
+    width: 100%;
+    height: 315px;
+}
+
+/* product-list */
+.product-list{
+    border: 1px solid #A19999;
+    width: 1440px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.product-item1 img{
+    width: 680px;
+    height: 460px;
+    margin: 20px;
+}
+.product-item1{
+    position: relative;
+    width: 720px;
+    height: 500px;
+}
+.product-item{
+    position: relative;
+}
+.product-item-wrapper{
+    width: 720px;
+    height: 500px;
+}
+.product-item img{
+    width: 320px;
+    height: 210px;
+    margin: 20px;
+}
+.product-item-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* đưa chữ vào giữa ảnh */
+.product-item1 h3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 20px; 
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.product-item h3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 20px; 
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+/* container */
+.container{
+    border: 1px solid #A19999;
+    width: 1440px;
+    height: auto;
+    background-color: #E3E0E0;
+}
+.image-container img{
+    width: 700px;
+    height: 280px;
+    margin: 20px 0;
+}
+.room-section{
+    display: flex;
+    justify-content: space-between;
+}
+.text-container{
+    display: flex;
+    align-items: center;
+}
+.text-container h3{
+    font-size: 24px;
+}
+.text-container-content h4{
+    color: #4A4545;
+}
+.text-container-content h5{
+    color: #4A4545;
+}
+.text-container img{
+    width: 400px;
+    height: 280px;
+}
+.text-container-content{
+    margin: 20px;
+}
+
+
+
+/* SẢN PHẨM MỚI */
+.product-grid {
+    display: grid; /* Kích hoạt Grid Layout */
+    grid-template-columns: repeat(4, 1fr); /* Tạo 4 cột, mỗi cột chiếm 1 phần đều nhau */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+    margin: 20px 0; /* Khoảng cách phía trên và dưới của grid */
+}
+
+.product-card {
+    display: flex;
+    border: 1px solid #ddd; /* Viền xung quanh mỗi sản phẩm */
+    padding: 15px; /* Khoảng cách bên trong thẻ sản phẩm */
+    text-align: center; /* Canh giữa nội dung */
+    background-color: #f9f9f9; /* Màu nền */
+    border-radius: 8px; /* Bo góc */
+}
+
+.product-card img {
+    max-width: 100%; /* Đảm bảo hình ảnh không vượt quá kích thước thẻ */
+    height: auto; /* Giữ tỷ lệ khung hình */
+    margin-bottom: 10px;
+}
+
+.product-card h4 {
+    margin: 10px 0;
+}
+
+
+
+/* footer */
+footer{
+    border: 1px solid #4A4545;
+    width: 1440px;
+    height: auto;
+    color: white;
+    background-color: #4A4545;
+}
+.footer1{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+}
+.footer-connect img{
+    width: 150px ;
+    height: auto;
+}
+.footer-connect button{
+    width: 200px;
+    height: 35px;
+    font-size: 15px;
+    border:1px solid white;
+    background-color: #4A4545;
+    color: white;
+}
+.footer2{
+    margin: 0 20px;
+    color: #A19999;
+}

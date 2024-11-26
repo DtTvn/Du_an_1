@@ -4,7 +4,7 @@
     <a href="<?= ROOT_URL ?>">Trang chủ</a> >>
     <b><?= $title ?></b>
 </div>
-    <h1>Sản phẩm mới</h1>
+<h1>Sản phẩm mới</h1>
 <?php foreach ($products as $product) : ?>
     <div class="product-grid">
         <div class="product-grids">
@@ -15,9 +15,11 @@
                     <?= $product['Price'] ?> vnđ
                 </h4>
                 <button class="add-to-cart">THÊM VÀO GIỎ</button>
-                <button class="view-details">XEM THÊM</button>
+                <a href="<?= ROOT_URL . '?ctl=detail&id=' . $product['id']?>">
+                    <button class="view-details">XEM THÊM</button>
+                </a>
             </div>
         </div>
     </div>
 <?php endforeach ?>
-<?php include_once ROOT_DIR . "views/client/footer.php" ?>  
+<?php include_once ROOT_DIR . "views/client/footer.php" ?>
