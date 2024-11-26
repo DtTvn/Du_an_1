@@ -17,12 +17,6 @@ session_start();
     match ($ctl) {
         '' => (new DashboardController)->index(),
         //Danh mục
-        'listdm' => (new AdminCategoryController)->index(),
-        'adddm' => (new AdminCategoryController)->create(),
-        'storedm' => (new AdminCategoryController)->store(),
-        'updatedm' => (new AdminCategoryController)->update(),
-        // 'deletedm' => (new AdminCategoryController)->delete(),
-        'editdm' => (new AdminCategoryController)->edit(),
 
         //Sản Phẩm
         'listsp' => (new AdminProductController)->index(),
