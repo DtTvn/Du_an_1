@@ -18,11 +18,11 @@
                <div class="box-input">
                     <div class="box-user">
                          <i class="fa-solid fa-envelope"></i>
-                         <input class="user" type="text" placeholder="Email">
+                         <input class="user" name="Email" type="Email" placeholder="Email">
                     </div>
                     <div class="box-user">
                          <i class="fa-solid fa-lock"></i>
-                         <input class="user" class="pass" type="password" placeholder="Password">
+                         <input class="user" class="Password" name="Password" type="Password" placeholder="Password">
                     </div>
                </div>
                <div class="box-forgot-password">
@@ -34,9 +34,6 @@
                     <tr>
                          <a href="#">
                               <button>Đăng nhập</button>
-                         </a>
-                         <a href="#">
-                              <button>Đăng kí</button>
                          </a>
                     </tr>
           </form>

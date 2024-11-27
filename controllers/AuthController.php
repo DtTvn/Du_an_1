@@ -3,17 +3,15 @@
 class AuthController {
      //Đăng kí
      public function register(){
-
           if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                $data = $_POST;
-
                //Ma hoa mat khau
                $password = $_POST['Password'];
                $password = password_hash($password, PASSWORD_DEFAULT);
 
                //dua vao data
                $data['Password'] = $password;
-dd($data);
+
                // insert vaof database
                (new User)->create($data);
 
@@ -30,7 +28,6 @@ dd($data);
           // kiem tra xem nguoi dung dang nhap chua
           if (isset($_SESSION['user'])) {
                header("location:" . ROOT_URL);
-               die;
           }
           $error = null;
           if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -46,11 +43,9 @@ dd($data);
                          $_SESSION['user'] = $user;
                          //neu rolr = admon, vao admin, nguowc lai vao trang chu
                          if($user['role']== 'admin'){
-                              header("location:" .ADMIN_URL);
-                              die;
+                              header("location: " .ADMIN_URL);
                          }
-                         header("location:" . ROOT_URL);
-                         die;
+                         header("location: " . ROOT_URL);
                     }else{
                          $error = "Email hoawc Mat Khau Khong dung";
                     }
@@ -65,6 +60,5 @@ dd($data);
      public function logout(){
           unset($_SESSION['user']);
           header("location:" . ROOT_URL . '?ctl=login');
-          die;
      }
 }

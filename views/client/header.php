@@ -33,12 +33,12 @@
                             <?php if(isset($_SESSION['user'])) : ?>
                                 <li>
                                     <a class="dropdown-item" href="<?= ROOT_URL ?>">
-                                        Đăng nhập
+                                        Xem thong tin
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?= ROOT_URL ?>">
-                                        đăng kí
+                                    <a class="dropdown-item" href="?ctl=logout">
+                                        dang xuat
                                     </a>
                                 </li>
                             <?php else : ?>

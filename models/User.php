@@ -35,7 +35,7 @@ class User extends BaseModel
           $sql = "INSERT INTO `users` (`FullName`, `Email`, `Password`, `Phone`, `address`) 
                VALUES (:FullName, :Email, :Password, :Phone, :address)";
           $stmt = $this->conn->prepare($sql);
-          if ($stmt->execute($data)) {
+          if($stmt->execute($data)) {
                return $this->conn->lastInsertId(); // Return the new user's ID
           }
           return false; // Return false if creation failed

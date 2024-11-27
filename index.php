@@ -21,6 +21,7 @@ match ($ctl) {
     'detail' => (new ProductController)->show(),
     'register'=> (new AuthController)->register(),
     'login' =>(new AuthController)->login(),
+    'logout' => (new AuthController)->logout(),
     // 'view-cart' => (new CartController)->viewCart(),
     default => view("errors.404"),
 };
