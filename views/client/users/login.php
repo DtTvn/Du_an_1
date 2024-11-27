@@ -2,7 +2,7 @@
 <div class="all-container">
      <div class="box-login">
           <h2>Sign in</h2>
-          <form action="">
+          <form action="<?= ROOT_URL . '?ctl=login' ?>" method="POST">
                <div class="box-login-icon">
                     <a href="">
                          <i class="fa-brands fa-facebook"></i>
@@ -32,10 +32,10 @@
                </div>
                <div class="button-login">
                     <tr>
-                         <a href="../index.html">
+                         <a href="#">
                               <button>Đăng nhập</button>
                          </a>
-                         <a href="../index.html">
+                         <a href="#">
                               <button>Đăng kí</button>
                          </a>
                     </tr>
