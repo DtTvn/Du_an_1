@@ -17,7 +17,7 @@ class AuthController {
 
                //thong bao
                $_SESSION['message'] = 'Dang ky Thanh cong';
-               header('localtion:' . ROOT_URL . "?ctl=login");
+               header('location:' . ROOT_URL . "?ctl=login");
 
           }
           return view('client.users.register');
@@ -27,7 +27,7 @@ class AuthController {
      public function login() {
           // kiem tra xem nguoi dung dang nhap chua
           if (isset($_SESSION['user'])) {
-               header("localtion:" . ROOT_URL);
+               header("location:" . ROOT_URL);
                die;
           }
           $error = null;
@@ -44,10 +44,10 @@ class AuthController {
                          $_SESSION['user'] = $user;
                          //neu rolr = admon, vao admin, nguowc lai vao trang chu
                          if($user['role']== 'admin'){
-                              header("localtion:" .ADMIN_URL);
+                              header("location:" .ADMIN_URL);
                               die;
                          }
-                         header("localtion:" . ROOT_URL);
+                         header("location:" . ROOT_URL);
                          die;
                     }else{
                          $error = "Email hoawc Mat Khau Khong dung";
@@ -62,7 +62,7 @@ class AuthController {
      //dang xuat
      public function logout(){
           unset($_SESSION['user']);
-          header("localtion:" . ROOT_URL . '?ctl=login');
+          header("location:" . ROOT_URL . '?ctl=login');
           die;
      }
 }

@@ -482,3 +482,38 @@ footer {
     top: 0;
     left: 0;
 }
+/* Nút thêm vào giỏ hàng */
+button.add-to-cart {
+    background-color: black; /* Nền đen */
+    color: white; /* Chữ trắng */
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.add-to-cart:hover {
+    background-color: #8E674E; /* Nền đổi sang màu #8E674E */
+    color: white; /* Chữ vẫn trắng */
+}
+
+/* Nút xem thêm */
+button.view-details {
+    background-color: white; /* Nền trắng */
+    color: black; /* Chữ đen */
+    border: 1px solid black; /* Đường viền đen */
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.view-details:hover {
+    background-color: #8E674E; /* Nền đổi sang màu #8E674E */
+    color: white; /* Chữ đổi sang trắng */
+}

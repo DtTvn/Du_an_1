@@ -24,10 +24,22 @@ class User extends BaseModel{
           $stmt = $this->conn->prepare($sql);
           $stmt->execute($data);
      }
-     public function update($id,$data){
-          $sql = "UPDATE `users` SET `FullName`=:FullName,`Email`=:Email,`Password`=:Password,`Phone`=:Phone,`role`=:role,`active`=:active,`address`=:address,`created_at`=:created_at,`updated_at`=:updated_at WHERE `id`=:id";
-          $stmt = $this->conn->prepare($sql);
-          $data['id'] = $id;
-          $stmt->execute($data);
-     }
+     //Cập nhật user
+    public function update($id, $data)
+    {
+        $sql = "UPDATE users SET Fullname=:Fullname, Phone=:Phone, Address=:Address, role=:role, active=:active WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        //thêm id vào data
+        $data['id'] = $id;
+        $stmt->execute($data);
+    }
+
+    //cập nhật hoạt động của user (active)
+    public function updateActive($id, $active)
+    {
+        $sql = "UPDATE users SET active=:active WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->execute(['id' => $id, 'active' => $active]);
+    }
 }
