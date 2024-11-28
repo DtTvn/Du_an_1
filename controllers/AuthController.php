@@ -65,4 +65,5 @@ class AuthController {
           header("localtion:" . ROOT_URL . '?ctl=login');
           die;
      }
+     
 }
