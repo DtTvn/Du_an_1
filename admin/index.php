@@ -7,11 +7,13 @@ require_once __DIR__ . "/../common/function.php";
 require_once __DIR__ . "/../models/BaseModel.php";
 require_once __DIR__ . "/../models/Category.php";
 require_once __DIR__ . "/../models/Product.php";
+require_once __DIR__ . "/../models/User.php";
 
 //include controller
 require_once __DIR__ . "/../controllers/admin/DashboardController.php";
 require_once __DIR__ . "/../controllers/admin/AdminProductController.php";
 require_once __DIR__ . "/../controllers/admin/AdminCategoryController.php";
+require_once __DIR__ . "/../controllers/AuthController.php";
 
 $ctl = $_GET['ctl'] ?? '';
 match ($ctl) {
