@@ -1,35 +1,58 @@
 <?php include_once ROOT_DIR . "views/admin/header.php" ?>
 
 <div class="container">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Họ tên</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Quyền</th>
+        <th scope="col">Hoạt động</th>
+        <th scope="col">Địa chỉ</th>
+        <th scope="col">
+
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($users as $user) : ?>
+        <tr>
+          <th scope="row"><?= $user['id'] ?></th>
+          <td><?= $user['FullName'] ?></td>
+          <td><?= $user['Email'] ?></td>
+          <td><?= $user['Phone'] ?></td>
+          <td><?= $user['role'] ?></td>
+          <td>
+            <?php if ($user['active'] == 1) : ?>
+              <span class="badge bg-success">
+                Hoạt động
+              </span>
+            <?php else : ?>
+              <span class="babge bg-danger">
+                Khóa
+              </span>
+            <?php endif ?>
+          </td>
+          <td><?= $user['active']  ?></td>
+          <td>
+            <form action="<?= ADMIN_URL . '?ctl=updateuser' ?>" method="post">
+              <input type="hidden" name="id" value="<?= $user['id'] ?>">
+              <input type="hidden" name="active" value="<?= $user['active']?>">
+              <?php if ($user['role'] != 'admin') : ?>
+                <?php if ($user['active'] == 1) : ?>
+                  <button type="submit" class="btn btn-danger">Khóa</button>
+                <?php else : ?>
+                  <button type="submit" class="btn btn-primary">Kích hoạt</button>
+                <?php endif ?>
+              <?php endif ?>
+            </form>
+          </td>
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+  </table>
 </div>
 
 <?php include_once ROOT_DIR . "views/admin/footer.php" ?>

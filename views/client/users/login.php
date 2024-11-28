@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="css/login.css">
 <div class="all-container">
-          <div class="box-login">
-               <h2>Sign in</h2>
+     <div class="box-login">
+          <h2>Sign in</h2>
+          <form action="<?= ROOT_URL . '?ctl=login' ?>" method="POST">
                <div class="box-login-icon">
                     <a href="">
                          <i class="fa-brands fa-facebook"></i>
@@ -17,11 +18,11 @@
                <div class="box-input">
                     <div class="box-user">
                          <i class="fa-solid fa-envelope"></i>
-                         <input class="user" type="text" placeholder="Email">
+                         <input class="user" name="Email" type="Email" placeholder="Email">
                     </div>
                     <div class="box-user">
                          <i class="fa-solid fa-lock"></i>
-                         <input class="user" class="pass" type="password" placeholder="Password">
+                         <input class="user" class="Password" name="Password" type="Password" placeholder="Password">
                     </div>
                </div>
                <div class="box-forgot-password">
@@ -31,159 +32,157 @@
                </div>
                <div class="button-login">
                     <tr>
-                         <a href="../index.html">
+                         <a href="#">
                               <button>Đăng nhập</button>
                          </a>
-                         <a href="../index.html">
-                              <button>Đăng kí</button>
-                         </a>                         
                     </tr>
-
-               </div>
-          </div>
+          </form>
      </div>
-     <script>
-          // chuyển slide trong html
-var img = [
-     "Picture/slider-4.jpg",
-     "Picture/slider-5.jpg",
-     "Picture/slider-6.jpg",
-];
+</div>
 
-// them su kien vao nut chuyển slide 
-let objRight = document.getElementById('right');
-let listButton = document.querySelectorAll('#list ul li button');
-listButton[0].style = 'background-color: #FF9B42';
+</div>
+<script>
+     // chuyển slide trong html
+     var img = [
+          "Picture/slider-4.jpg",
+          "Picture/slider-5.jpg",
+          "Picture/slider-6.jpg",
+     ];
 
-let index = 0;
+     // them su kien vao nut chuyển slide 
+     let objRight = document.getElementById('right');
+     let listButton = document.querySelectorAll('#list ul li button');
+     listButton[0].style = 'background-color: #FF9B42';
 
-objRight.addEventListener('click', function () {
-     index++;
+     let index = 0;
 
-     // chuyển đổi màu cho list index 
-     if (index == 1) {
-          listButton[0].style = 'background-color: transparent';
-          listButton[1].style = 'background-color: #FF9B42';
-     } else if (index == 2) {
-          listButton[1].style = 'background-color: transparent';
-          listButton[2].style = 'background-color: #FF9B42';
-     } else {
-          listButton[2].style = 'background-color: transparent';
-          listButton[0].style = 'background-color: #FF9B42';
+     objRight.addEventListener('click', function() {
+          index++;
+
+          // chuyển đổi màu cho list index 
+          if (index == 1) {
+               listButton[0].style = 'background-color: transparent';
+               listButton[1].style = 'background-color: #FF9B42';
+          } else if (index == 2) {
+               listButton[1].style = 'background-color: transparent';
+               listButton[2].style = 'background-color: #FF9B42';
+          } else {
+               listButton[2].style = 'background-color: transparent';
+               listButton[0].style = 'background-color: #FF9B42';
+          }
+
+          // nếu index lớn hơn số ảnh thì quay lại ảnh đầu tiên
+          if (index >= img.length) {
+               index = 0;
+          }
+          document.getElementById('pic').src = img[index];
+     });
+
+     let objLeft = document.getElementById('left');
+
+     objLeft.addEventListener('click', function() {
+          index--;
+
+          // chuyển đổi màu cho list index 
+          if (index == -1) {
+               listButton[0].style = 'background-color: transparent';
+               listButton[2].style = 'background-color: #FF9B42';
+          } else if (index == 1) {
+               listButton[2].style = 'background-color: transparent';
+               listButton[1].style = 'background-color: #FF9B42';
+          } else {
+               listButton[1].style = 'background-color: transparent';
+               listButton[0].style = 'background-color: #FF9B42';
+          }
+          if (index < 0) {
+               index = 2;
+          }
+          document.getElementById('pic').src = img[index];
+     });
+
+     // chuyển slide banner khi click vào list index img 
+     function indexNumber(num) {
+          if (num == 0) {
+               // chuyển màu cho button list 
+               listButton[0].style = 'background-color: #FF9B42';
+               listButton[1].style = 'background-color: transparent';
+               listButton[2].style = 'background-color: transparent';
+               // end chuyển màu cho button list 
+
+               document.getElementById('pic').src = img[0];
+          } else if (num == 1) {
+               // chuyển màu cho button list 
+               listButton[1].style = 'background-color: #FF9B42';
+               listButton[0].style = 'background-color: transparent';
+               listButton[2].style = 'background-color: transparent';
+               // end chuyển màu cho button list 
+
+               document.getElementById('pic').src = img[1];
+          } else {
+               // chuyển màu cho button list 
+               listButton[2].style = 'background-color: #FF9B42';
+               listButton[0].style = 'background-color: transparent';
+               listButton[1].style = 'background-color: transparent';
+               // end chuyển màu cho button list 
+
+               document.getElementById('pic').src = img[2];
+          }
      }
 
-     // nếu index lớn hơn số ảnh thì quay lại ảnh đầu tiên
-     if (index >= img.length) {
-          index = 0;
-     }
-     document.getElementById('pic').src = img[index];
-});
+     // Lặp lại slide trong phần banner
+     setInterval(function() {
+          index++;
 
-let objLeft = document.getElementById('left');
+          // chuyển đổi màu cho list index 
+          if (index == 1) {
+               listButton[0].style = 'background-color: transparent';
+               listButton[1].style = 'background-color: #FF9B42';
+          } else if (index == 2) {
+               listButton[1].style = 'background-color: transparent';
+               listButton[2].style = 'background-color: #FF9B42';
+          } else {
+               listButton[2].style = 'background-color: transparent';
+               listButton[0].style = 'background-color: #FF9B42';
+          }
 
-objLeft.addEventListener('click', function () {
-     index--;
+          // nếu index lớn hơn số ảnh thì quay lại ảnh đầu tiên
+          if (index >= img.length) {
+               index = 0;
+          }
+          document.getElementById('pic').src = img[index];
+     }, 2000);
 
-     // chuyển đổi màu cho list index 
-     if (index == -1) {
-          listButton[0].style = 'background-color: transparent';
-          listButton[2].style = 'background-color: #FF9B42';
-     } else if (index == 1) {
-          listButton[2].style = 'background-color: transparent';
-          listButton[1].style = 'background-color: #FF9B42';
-     } else {
-          listButton[1].style = 'background-color: transparent';
-          listButton[0].style = 'background-color: #FF9B42';
-     }
-     if (index < 0) {
-          index = 2;
-     }
-     document.getElementById('pic').src = img[index];
-});
+     /// chuyển đổi ảnh trong khi hover vào img product
+     let firstImg = document.getElementById('Pic-1');
 
-// chuyển slide banner khi click vào list index img 
-function indexNumber(num) {
-     if (num == 0) {
-          // chuyển màu cho button list 
-          listButton[0].style = 'background-color: #FF9B42';
-          listButton[1].style = 'background-color: transparent';
-          listButton[2].style = 'background-color: transparent';
-          // end chuyển màu cho button list 
+     firstImg.addEventListener('mouseover', function() {
+          firstImg.src = "Picture/products-8-600x600.jpg";
+     });
 
-          document.getElementById('pic').src = img[0];
-     } else if (num == 1) {
-          // chuyển màu cho button list 
-          listButton[1].style = 'background-color: #FF9B42';
-          listButton[0].style = 'background-color: transparent';
-          listButton[2].style = 'background-color: transparent';
-          // end chuyển màu cho button list 
+     firstImg.addEventListener('mouseout', function() {
+          firstImg.src = "Picture/products-7-600x600.jpg";
+     });
+     // -----------------------------------------------
 
-          document.getElementById('pic').src = img[1];
-     } else {
-          // chuyển màu cho button list 
-          listButton[2].style = 'background-color: #FF9B42';
-          listButton[0].style = 'background-color: transparent';
-          listButton[1].style = 'background-color: transparent';
-          // end chuyển màu cho button list 
+     let firstImg_1 = document.getElementById('Pic-2');
 
-          document.getElementById('pic').src = img[2];
-     }
-}
+     firstImg_1.addEventListener('mouseover', function() {
+          firstImg_1.src = "Picture/img-16-600x600.jpg";
+     });
 
-// Lặp lại slide trong phần banner
-setInterval(function () {
-     index++;
+     firstImg_1.addEventListener('mouseout', function() {
+          firstImg_1.src = "Picture/img-15-9-600x600.jpg";
+     });
+     // -----------------------------------------------
 
-     // chuyển đổi màu cho list index 
-     if (index == 1) {
-          listButton[0].style = 'background-color: transparent';
-          listButton[1].style = 'background-color: #FF9B42';
-     } else if (index == 2) {
-          listButton[1].style = 'background-color: transparent';
-          listButton[2].style = 'background-color: #FF9B42';
-     } else {
-          listButton[2].style = 'background-color: transparent';
-          listButton[0].style = 'background-color: #FF9B42';
-     }
+     let firstImg_2 = document.getElementById('Pic-3');
 
-     // nếu index lớn hơn số ảnh thì quay lại ảnh đầu tiên
-     if (index >= img.length) {
-          index = 0;
-     }
-     document.getElementById('pic').src = img[index];
-}, 2000);
+     firstImg_2.addEventListener('mouseover', function() {
+          firstImg_2.src = "Picture/products-2-600x600.jpg";
+     });
 
-/// chuyển đổi ảnh trong khi hover vào img product
-let firstImg = document.getElementById('Pic-1');
-
-firstImg.addEventListener('mouseover', function () {
-     firstImg.src = "Picture/products-8-600x600.jpg";
-});
-
-firstImg.addEventListener('mouseout', function () {
-     firstImg.src = "Picture/products-7-600x600.jpg";
-});
-// -----------------------------------------------
-
-let firstImg_1 = document.getElementById('Pic-2');
-
-firstImg_1.addEventListener('mouseover', function () {
-     firstImg_1.src = "Picture/img-16-600x600.jpg";
-});
-
-firstImg_1.addEventListener('mouseout', function () {
-     firstImg_1.src = "Picture/img-15-9-600x600.jpg";
-});
-// -----------------------------------------------
-
-let firstImg_2 = document.getElementById('Pic-3');
-
-firstImg_2.addEventListener('mouseover', function () {
-     firstImg_2.src = "Picture/products-2-600x600.jpg";
-});
-
-firstImg_2.addEventListener('mouseout', function () {
-     firstImg_2.src = "Picture/products-1-600x600.jpg";
-});
-// -----------------------------------------------
-     </script>
+     firstImg_2.addEventListener('mouseout', function() {
+          firstImg_2.src = "Picture/products-1-600x600.jpg";
+     });
+     // -----------------------------------------------
+</script>

@@ -27,17 +27,18 @@
                 <i class="fa-solid fa-cart-shopping"></i>
                     <i>
                         <a class="fa-regular fa-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?= $_SESSION['user']['FullName'] ?? '' ?>
                         </a>
                         <ul class="dropdown-menu">
                             <?php if(isset($_SESSION['user'])) : ?>
                                 <li>
                                     <a class="dropdown-item" href="<?= ROOT_URL ?>">
-                                        Đăng nhập
+                                        Xem thong tin
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?= ROOT_URL ?>">
-                                        đăng kí
+                                    <a class="dropdown-item" href="?ctl=logout">
+                                        dang xuat
                                     </a>
                                 </li>
                             <?php else : ?>
