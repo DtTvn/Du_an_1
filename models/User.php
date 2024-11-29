@@ -44,19 +44,10 @@ class User extends BaseModel
      // Update user by ID
      public function update($id, $data)
      {
-          $sql = "UPDATE `users` SET 
-                    `FullName` = :FullName,
-                    `Email` = :Email,
-                    `Password` = :Password,
-                    `Phone` = :Phone,
-                    `role` = :role,
-                    `active` = :active,
-                    `address` = :address,
-                    `created_at` = :created_at,
-                    `updated_at` = :updated_at 
-               WHERE `id` = :id";
+          $sql = "UPDATE users SET FullName=:FullName, Phone=:Phone, address=:address, role=:role, active=:active WHERE id=:id";
           $stmt = $this->conn->prepare($sql);
           $data['id'] = $id; // Add ID to the data array
+          
           $stmt->execute($data); // Return true if the update was successful
      }
 

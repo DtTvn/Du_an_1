@@ -1,10 +1,6 @@
 <?php include_once ROOT_DIR . "views/client/header.php" ?>
 
-<div class="mb-5">
-    <a href="<?= ROOT_URL ?>">Trang chủ</a> >>
-    <b><?= $title ?></b>
-</div>
-<h1>Sản phẩm</h1>
+<h1>Sản phẩm <?= $title?></h1>
 <div class="product-grid">
 <?php foreach ($products as $product) : ?>
     <div class="product-grids">
