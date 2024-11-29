@@ -6,4 +6,3 @@
         Quay lại trang chủ <a href="<?= ROOT_URL?>">Trang chủ</a>
     </p>
 </div>
-

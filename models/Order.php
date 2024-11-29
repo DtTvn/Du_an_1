@@ -25,7 +25,7 @@ class Order extends BaseModel
     //Thêm hóa đơn
     public function create($data)
     {
-        $sql = "INSERT INTO orders(CustomerID, Status, PaymentMethod, TotalPrice) VALUES(:CustomerID, :Starus, :PaymentMethod, :TotalPrice)";
+        $sql = "INSERT INTO orders(CustomerID, Status, PaymentMethod, TotalPrice) VALUES(:CustomerID, :Status, :PaymentMethod, :TotalPrice)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
         return $this->conn->lastInsertId();
