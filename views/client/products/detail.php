@@ -8,7 +8,7 @@
                 <!-- Thông tin sản phẩm -->
                 <div class="col-md-6">
                     <h1 class="display-5"><?=$product['ProductName']?></h1>
-                    <p class="text-muted"><?= number_format($product['Price']) ?> vnđ</p>
+                    <p class="text-muted"><?= number_format($product['Price']) ?> VND</p>
                     <p><strong>Dimensions</strong>
                         <button class="btn-lg border border-dark text-dark">
                             <i class="bi bi-cart-plus"></i><?= $product['Dimensions']?>

@@ -61,4 +61,18 @@ class AuthController {
           unset($_SESSION['user']);
           header("location:" . ROOT_URL . '?ctl=login');
      }
+     
+     public function index(){
+          $users = (new User)->all();
+          return view('admin.users.list', compact('users'));
+     }
+
+     public function updateActive(){
+          $data = $_POST;
+
+          $data['active'] = $data['active']? 0 : 1;
+
+          (new User)->updateActive($data['id'],$data['active']);
+          return header('Location: ' . ADMIN_URL . '?ctl=listuser');
+     }
 }

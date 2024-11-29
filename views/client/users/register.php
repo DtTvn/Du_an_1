@@ -40,6 +40,12 @@
                <div class="button-login">
                     <a href=""><button type="submit">Đăng ký</button></a> 
                </div>
+               
+               <div class="box-forgot-password">
+                    <div>
+                         <a href="">Forgot your password ?</a>
+                    </div>
+               </div>
           </form>
      </div>
 </div>

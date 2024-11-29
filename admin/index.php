@@ -33,5 +33,10 @@ match ($ctl) {
         'editsp' => (new AdminProductController)->edit(),
         'updatesp' => (new AdminProductController)->update(),
         'deletesp' => (new AdminProductController)->delete(),
-        default => view("errors.404"),
+
+        //User
+        'listuser' => (new AuthController)->index(),
+        'updateuser' => (new AuthController)->updateActive(),
+
+        // default => view("errors.404"),
 };

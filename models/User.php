@@ -57,6 +57,13 @@ class User extends BaseModel
                WHERE `id` = :id";
           $stmt = $this->conn->prepare($sql);
           $data['id'] = $id; // Add ID to the data array
-          return $stmt->execute($data); // Return true if the update was successful
+          $stmt->execute($data); // Return true if the update was successful
+     }
+
+     //Cap nhap hoat dong cua user (active)
+     public function updateActive($id ,$active){
+          $sql = "UPDATE users SET active=:active WHERE id=:id";
+          $stmt = $this->conn->prepare($sql);
+          $stmt->execute(['id'=>$id, 'active' => $active]);
      }
 }
