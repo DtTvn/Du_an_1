@@ -49,7 +49,8 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
-                <i class="fa-solid fa-cart-shopping m-3"></i>
+                <a href="<?= ROOT_URL .'?ctl=view-cart'?>"><i class="fa-solid fa-cart-shopping m-3"></i></a>
+                
                     <i>
                         <a class="fa-regular fa-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?= $_SESSION['user']['FullName'] ?? '' ?>
