@@ -42,7 +42,8 @@ class AuthController {
                          //dang nhap thanh cong
                          $_SESSION['user'] = $user;
                          //neu rolr = admon, vao admin, nguowc lai vao trang chu
-                         if($user['role']== 'admin'){
+                         dd($user);
+                         if($user['role'] == 'admin'){
                               header("location: " .ADMIN_URL);
                          }
                          header("location: " . ROOT_URL);
