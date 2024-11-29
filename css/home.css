@@ -277,8 +277,11 @@ h3, h4, h5 {
 }
 
 .product-name {
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
     font-size: 16px;
-    margin: 10px 0;
+    padding-top: 10px;
 }
 
 .product-price {

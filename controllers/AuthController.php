@@ -6,11 +6,11 @@ class AuthController {
           if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                $data = $_POST;
                //Ma hoa mat khau
-               $password = $_POST['password'];
+               $password = $_POST['Password'];
                $password = password_hash($password, PASSWORD_DEFAULT);
 
                //dua vao data
-               $data['password'] = $password;
+               $data['Password'] = $password;
 
                // insert vaof database
                (new User)->create($data);
@@ -28,27 +28,24 @@ class AuthController {
           // kiem tra xem nguoi dung dang nhap chua
           if (isset($_SESSION['user'])) {
                header("location:" . ROOT_URL);
-               die;
           }
           $error = null;
           if ($_SERVER['REQUEST_METHOD'] === "POST") {
-               $email = $_POST['email'];
-               $password = $_POST['password'];
+               $email = $_POST['Email'];
+               $password = $_POST['Password'];
 
                $user = (new User)->findUserOfEmail($email);
 
                //kiem tra mat khau
                if ($user) {
-                    if (password_verify($password, $user['password'])) {
+                    if (password_verify($password, $user['Password'])) {
                          //dang nhap thanh cong
                          $_SESSION['user'] = $user;
                          //neu rolr = admon, vao admin, nguowc lai vao trang chu
                          if($user['role']== 'admin'){
-                              header("location:" .ADMIN_URL);
-                              die;
+                              header("location: " .ADMIN_URL);
                          }
-                         header("location:" . ROOT_URL);
-                         die;
+                         header("location: " . ROOT_URL);
                     }else{
                          $error = "Email hoawc Mat Khau Khong dung";
                     }
@@ -63,6 +60,19 @@ class AuthController {
      public function logout(){
           unset($_SESSION['user']);
           header("location:" . ROOT_URL . '?ctl=login');
-          die;
+     }
+     
+     public function index(){
+          $users = (new User)->all();
+          return view('admin.users.list', compact('users'));
+     }
+
+     public function updateActive(){
+          $data = $_POST;
+
+          $data['active'] = $data['active']? 0 : 1;
+
+          (new User)->updateActive($data['id'],$data['active']);
+          return header('Location: ' . ADMIN_URL . '?ctl=listuser');
      }
 }

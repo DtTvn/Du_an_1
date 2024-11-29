@@ -18,19 +18,19 @@
                <div class="box-input">
                     <div class="box-user">
                          <i class="fa-solid fa-user"></i>
-                         <input class="user" type="text" name="fullname" placeholder="Nhập họ tên">
+                         <input class="user" type="text" name="FullName" placeholder="Nhập họ tên">
                     </div>
                     <div class="box-user">
                          <i class="fa-solid fa-envelope"></i>
-                         <input class="user" type="email" name="email" placeholder="Nhập email">
+                         <input class="user" type="email" name="Email" placeholder="Nhập email">
                     </div>
                     <div class="box-user">
                          <i class="fa-solid fa-lock"></i>
-                         <input class="user" type="password" name="password" placeholder="Nhập mật khẩu">
+                         <input class="user" type="password" name="Password" placeholder="Nhập mật khẩu">
                     </div>
                     <div class="box-user">
                          <i class="fa-solid fa-phone"></i>
-                         <input class="user" type="text" name="phone" placeholder="Nhập số điện thoại">
+                         <input class="user" type="text" name="Phone" placeholder="Nhập số điện thoại">
                     </div>
                     <div class="box-user">
                          <i class="fa-solid fa-location-dot"></i>
@@ -38,7 +38,7 @@
                     </div>
                </div>
                <div class="button-login">
-                    <button type="submit">Đăng ký</button>
+                    <a href=""><button type="submit">Đăng ký</button></a> 
                </div>
                
                <div class="box-forgot-password">

@@ -88,18 +88,60 @@ class CartController
     }
     // Hiện thông tin Thanh toán
     public function viewCheckOut(){
-        // if(!isset($_SESSION['user'])){
-        //     return header("Location" . ROOT_URL .'?ctl=login');
-        // }
-        // $user = $_SESSION['user'];
+        if(!isset($_SESSION['user'])){
+            return header("location:" . ROOT_URL .'?ctl=login');
+        }
+        $user = $_SESSION['user'];
         $carts = $_SESSION['cart'] ?? [];
         $totalPriceInOrder = $this->totalPriceInOrder();
-        return view("client.carts.checkout",compact('carts','totalPriceInOrder'));
+        return view("client.carts.checkout",compact('user','carts','totalPriceInOrder'));
 
     }
     //Thanh toán
     public function checkOut(){
-        $data= $_POST;
-        dd($_POST);
+        //lấy thông tin người dùng
+        $user = [
+            'id' => $_POST['id'],
+            'FullName' => $_POST['FullName'],
+            'Phone' => $_POST['Phone'],
+            'address' => $_SESSION['user']['address'],
+            'role' => $_SESSION['user']['role'],
+            'active' => $_SESSION['user']['active'],
+        ];
+        $totalPriceInOrder = $this->totalPriceInOrder();
+        //lấy thông tin thanh toán
+        $order = [
+            'CustomerID' => $_POST['id'],
+            'Status' => 1,
+            'PaymentMethod' => $_POST['PaymentMethod'],
+            'TotalPrice' => $totalPriceInOrder,
+        ];
+        //lưu thông tin người dùng
+        (new User)-> update($user['id'],$user);
+        //lưu thông tin đơn hàng
+        $order_id = (new Order)->create($order);
+
+        //lưu thông tin chi tiết
+        $carts = $_SESSION['cart'];
+        foreach($carts as $id => $cart){
+            $or_detial = [
+                'OrderID' => $order_id,
+                'ProductID' => $id,
+                'Quantity' => $cart['quantity'],
+                'UnitPrice' => $cart['Price'],
+            ];
+            (new Order)->createOrderDetail($or_detial);
+        }
+        $this->clearCart();// xóa thông tin giỏ hàng
+        return header("Location:" . ROOT_URL. '?ctl=success');
+
+    }
+    //xóa giỏ hàng
+    public function clearCart(){
+        unset($_SESSION['cart']);
+        unset($_SESSION['URI']);
+    }
+    public function success(){
+        return view("client.carts.success");
     }
 }
