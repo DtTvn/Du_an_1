@@ -1,0 +1,522 @@
+/* trang banner.php */
+.product-list{
+    /* border: 1px solid #A19999; */
+    width: 1440px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.product-item1 img{
+    width: 680px;
+    height: 460px;
+    margin: 20px;
+}
+.product-item1{
+    position: relative;
+    width: 720px;
+    height: 500px;
+}
+.product-item{
+    position: relative;
+}
+.product-item-wrapper{
+    width: 720px;
+    height: 500px;
+}
+.product-item img{
+    width: 320px;
+    height: 210px;
+    margin: 20px;
+}
+.product-item-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* đưa chữ vào giữa ảnh */
+.product-item1 h3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 20px; 
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.product-item h3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 20px; 
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+/* container */
+.container{
+    /* border: 1px solid #A19999; */
+    width: 1440px;
+    height: auto;
+    margin: 0 auto;
+}
+.image-container img{
+    width: 700px;
+    height: 280px;
+    margin: 20px 0;
+}
+.room-section{
+    display: flex;
+    justify-content: space-between;
+}
+.text-container{
+    display: flex;
+    align-items: center;
+}
+.text-container h3{
+    font-size: 15px;
+}
+.text-container-content h4{
+    color: #4A4545;
+    font-size: 10px;
+}
+.text-container-content h5{
+    color: #4A4545;
+    font-size: 12px;
+}
+.text-container img{
+    width: 400px;
+    height: 280px;
+}
+.text-container-content{
+    margin: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tổng thể */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h3, h4, h5 {
+    margin-bottom: 10px;
+}
+
+/* Header */
+.header-top {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+.header-top .menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-top h4 {
+    font-size: 14px;
+    margin-right: 20px;
+    color: #555;
+}
+
+.header-top .menu h4 {
+    margin: 0 15px;
+    cursor: pointer;
+}
+.header-top .sales{
+    color: #DE4646;
+}
+
+.header-top .menu h4:hover {
+    text-decoration: underline;
+}
+
+.header-top .cart i {
+    font-size: 20px;
+    margin-left: 15px;
+    color: #333;
+    cursor: pointer;
+}
+
+.header-middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-middle img {
+    width: 180px;
+    height: auto;
+}
+.header-middle  ul{
+    list-style: none;
+}
+.header-middle ul li a{
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 100px;
+}
+
+.nav-links a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+.nav-links a:hover {
+    color: #8E674E;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    border: 1px solid #ddd;
+    border-right: none;
+    padding: 8px;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search button {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: #0056b3;
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    height: 100vh; /* Đặt chiều cao banner bằng chiều cao của viewport */
+    overflow: hidden;
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%; /* Đảm bảo ảnh có chiều cao 100% */
+    object-fit: cover; /* Đảm bảo ảnh phủ đầy phần container mà không bị bóp méo */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Parent Container */
+.container {
+    max-width: 1200px; /* Đặt chiều rộng tối đa cho container */
+    margin: 0 auto; /* Căn giữa container */
+    padding: 0 20px; /* Thụt vào 20px hai bên ngoài */
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    gap: 20px; /* Adds space between each product */
+    justify-items: center; /* Centers the products in each grid item */
+    padding: 20px 0; /* Space above and below the grid */
+    background-color: #fff;
+}
+
+.product-card {
+    position: relative;
+    background-color: white;
+    border: 1px solid #A19999;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    width: 100%; /* Ensures the product cards take up the full width of their grid cells */
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+.product-name {
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.product-price {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Buttons visibility */
+.add-to-cart,
+.view-details {
+    opacity: 0;
+    visibility: hidden;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Show buttons when hovered */
+.product-card:hover .add-to-cart,
+.product-card:hover .view-details {
+    opacity: 1;
+    visibility: visible;
+}
+
+.product-card button {
+    border: none;
+    padding: 8px 16px;
+    margin: 5px 0;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart {
+    background-color: #28a745; /* Green */
+}
+
+.view-details {
+    background-color: #007bff; /* Blue */
+}
+
+.add-to-cart:hover,
+.view-details:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+/* Ẩn nút mặc định */
+.add-to-cart,
+.view-details {
+    opacity: 0;
+    visibility: hidden;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Hiển thị nút khi hover */
+.product-card:hover .add-to-cart,
+.product-card:hover .view-details {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Button styles */
+.product-card button {
+    border: none;
+    padding: 8px 16px;
+    margin: 5px 0;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart {
+    background-color: #28a745; /* Xanh lá */
+}
+
+.view-details {
+    background-color: #007bff; /* Xanh dương */
+}
+
+.add-to-cart:hover,
+.view-details:hover {
+    background-color: #0056b3; /* Xanh đậm */
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #222; /* Màu nền tối hiện đại */
+    color: #f1f1f1; /* Màu chữ sáng để tương phản */
+    padding: 40px 20px;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer1 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Đáp ứng tốt trên các thiết bị nhỏ */
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Phong cách logo */
+.footer img {
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Căn chỉnh từng cột trong footer */
+.footer1 div {
+    flex: 1; /* Đảm bảo cột cân đối */
+    min-width: 250px;
+}
+
+.footer1 h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #ffc107; /* Màu vàng nổi bật */
+    font-weight: bold;
+    border-bottom: 2px solid #ffc107; /* Gạch chân tiêu đề */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer1 h5 {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #ccc;
+}
+
+.footer1 h5:hover {
+    color: #fff; /* Hiệu ứng hover */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Button phong cách */
+.footer1 button {
+    background-color: #ffc107; /* Màu vàng nổi bật */
+    border: none;
+    padding: 10px 20px;
+    color: #222;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer1 button:hover {
+    background-color: #ff9800; /* Vàng cam đậm hơn khi hover */
+    color: #fff;
+}
+
+/* Footer phần dưới */
+.footer2 {
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    border-top: 1px solid #555;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+/* Điều chỉnh trên thiết bị nhỏ */
+@media (max-width: 768px) {
+    .footer1 {
+        flex-direction: column; /* Cột xếp chồng trên màn hình nhỏ */
+    }
+    .footer1 div {
+        margin-bottom: 20px;
+    }
+}
+
+/*Css banner*/
+.banner {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* Nút thêm vào giỏ hàng */
+button.add-to-cart {
+    background-color: black; /* Nền đen */
+    color: white; /* Chữ trắng */
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.add-to-cart:hover {
+    background-color: #8E674E; /* Nền đổi sang màu #8E674E */
+    color: white; /* Chữ vẫn trắng */
+}
+
+/* Nút xem thêm */
+button.view-details {
+    background-color: white; /* Nền trắng */
+    color: black; /* Chữ đen */
+    border: 1px solid black; /* Đường viền đen */
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.view-details:hover {
+    background-color: #8E674E; /* Nền đổi sang màu #8E674E */
+    color: white; /* Chữ đổi sang trắng */
+}
