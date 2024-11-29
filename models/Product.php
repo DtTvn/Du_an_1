@@ -92,3 +92,8 @@ class Product extends BaseModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
+// $productModel = new Product();
+// $tables = $productModel->listOtherProduct(); // Lấy danh sách sản phẩm mới
+// $product = $productModel->find($_GET['id']); // Lấy chi tiết sản phẩm theo ID
+
+// include_once ROOT_DIR . "views/client/products/detail.php";
