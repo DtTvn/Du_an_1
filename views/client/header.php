@@ -49,10 +49,10 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
-                <a href="<?= ROOT_URL .'?ctl=view-cart'?>"><i class="fa-solid fa-cart-shopping m-3 fs-3">(<?= $_SESSION['totalQuantity'] ?? 0?>)</i></a>
+                <a href="<?= ROOT_URL .'?ctl=view-cart'?>"><i class="fa-solid fa-cart-shopping m-3 fs-5">(<?= $_SESSION['totalQuantity'] ?? 0?>)</i></a>
                 
                     <i>
-                        <a class="fa-regular fa-user fs-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="fa-regular fa-user fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?= $_SESSION['user']['FullName'] ?? '' ?>
                         </a>
                         <ul class="dropdown-menu">

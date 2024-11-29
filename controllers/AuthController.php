@@ -42,11 +42,12 @@ class AuthController {
                          //dang nhap thanh cong
                          $_SESSION['user'] = $user;
                          //neu rolr = admon, vao admin, nguowc lai vao trang chu
-                         dd($user);
                          if($user['role'] == 'admin'){
-                              header("location: " .ADMIN_URL);
+                         // dd($user);die;
+
+                             return header("location: " . ADMIN_URL);
                          }
-                         header("location: " . ROOT_URL);
+                         return header("location: " . ROOT_URL);
                     }else{
                          $error = "Email hoawc Mat Khau Khong dung";
                     }
