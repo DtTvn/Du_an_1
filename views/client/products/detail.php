@@ -46,7 +46,7 @@
             </div>
         </div>
         
-        <div class="container">
+        <!-- <div class="container">
         <h1>Sản phẩm gợi ý</h1>
             <div class="product-grid">
                     <?php foreach ($tables as $table): ?>
@@ -63,7 +63,7 @@
                         </div>
                     <?php endforeach; ?>
             </div>
-        </div>
+        </div> -->
         <?php include_once ROOT_DIR . "views/client/footer.php"?>
         <!-- Bootstrap JS -->
         <link
