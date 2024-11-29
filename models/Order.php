@@ -2,10 +2,17 @@
 
 class Order extends BaseModel
 {
+    public $status_details = [
+        1 => 'Chờ xác nhận',
+        2 => 'Chờ giao hàng',
+        3 => 'Đã giao',
+        4 => 'Đã hủy',
+    ];
+
     //tất cả hóa đơna
     public function all()
     {
-        $sql = "SELECT o.*, Fullname, Email, Address, Phone FROM orders o JOIN users u ON o.CustomerID=u.id ORDER BY o.id DESC";
+        $sql = "SELECT o.*, FullName, Email, Address, Phone FROM orders o JOIN users u ON o.CustomerID=u.id ORDER BY o.id DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -13,13 +20,23 @@ class Order extends BaseModel
     //chi tiết hóa đơn
     public function find($id)
     {
-        $sql = "SELECT o.*, Fullname, Email, Address, Phone, od.TotalPrice, od.Quantity, ProductName, Image 
+        $sql = "SELECT o.*, FullName, Email, address, Phone
         FROM orders o JOIN users u ON o.CustomerID=u.id 
-        JOIN order_details od ON od.OrderID=o.id 
-        JOIN products p ON od.ProductID=p.id 
         WHERE o.id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    //danh sách sản phẩm của hóa đơn
+    public function listOrderDetail($id){
+        $sql = "SELECT od.*, ProductName,Image 
+        FROM order_details od JOIN products p 
+        ON od.ProductID = p.id
+        WHERE od.OrderID=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     //Thêm hóa đơn
@@ -40,7 +57,7 @@ class Order extends BaseModel
     }
 
     //Thêm chi tiết đơn hàng
-    public function createOrderDetail($data)
+    public function createOrderDetail($data) 
     {
         $sql = "INSERT INTO order_details(OrderID, ProductID, Quantity, UnitPrice) VALUES(:OrderID, :ProductID, :Quantity, :UnitPrice)";
         $stmt = $this->conn->prepare($sql);
