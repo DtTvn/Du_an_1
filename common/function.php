@@ -19,4 +19,17 @@ function session_flash($key){
     unset($_SESSION[$key]);
     return $message;
 }
+
+// chuyển đổi trạng thái đơn hàng
+function getOrderStatus($status){
+    $status_details = [
+        1 => 'Chờ xác nhận',
+        2 => 'Chờ giao hàng',
+        3 => 'Đã giao',
+        4 => 'Đã hủy',
+    ];
+    return $status_details[$status];
+}
+
+
 ?>
