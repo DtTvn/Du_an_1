@@ -1,6 +1,5 @@
 <?php include_once ROOT_DIR . "views/client/header.php"; ?>
 <?php include_once ROOT_DIR . "views/client/banner.php"; ?>
-
 <div class="container">
 <h1>Sản phẩm mới</h1>
     <div class="product-grid">

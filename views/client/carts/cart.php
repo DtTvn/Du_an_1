@@ -51,14 +51,19 @@
         </div>
         <!-- Nút hành động -->
         <div class="d-flex justify-content-between mt-4">
-            <a href="<?= ROOT_URL ?>" class="btn btn-secondary">
-                <i class="bi bi-arrow-left"></i> Tiếp tục mua sắm
-            </a>
+            <div>
+                <a href="<?= ROOT_URL ?>" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Tiếp tục mua sắm
+                </a>
+                <a href="<?= ROOT_URL . '?ctl=list-order' ?>" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Lịch sử đơn hàng
+                </a>
+            </div>
             <div>
                 <button type="submit" class="btn btn-warning">
                     <i class="bi bi-arrow-clockwise"></i> Cập nhật giỏ hàng
                 </button>
-                <a href="<?= ROOT_URL . '?ctl=view-checkout'?>" type="button" class="btn btn-success">
+                <a href="<?= ROOT_URL . '?ctl=view-checkout' ?>" type="button" class="btn btn-success">
                     <i class="bi bi-credit-card"></i> Thanh toán
                 </a>
             </div>

@@ -25,39 +25,39 @@
             </div>
             <div class="cart">
                 <!-- giỏ hàng -->
-                <a class="nav-link" href="<?= ROOT_URL .'?ctl=view-cart'?>">
-                    <i class="fa-solid fa-cart-shopping">(<?= $_SESSION['totalQuantity'] ?? 0?>)</i>
+                <a class="nav-link" href="<?= ROOT_URL . '?ctl=view-cart' ?>">
+                    <i class="fa-solid fa-cart-shopping">(<?= $_SESSION['totalQuantity'] ?? 0 ?>)</i>
                 </a>
-                    <i>
-                        <a class="fa-regular fa-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?= $_SESSION['user']['FullName'] ?? '' ?>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <?php if(isset($_SESSION['user'])) : ?>
-                                <li>
-                                    <a class="dropdown-item" href="<?= ROOT_URL ?>">
-                                        Xem thong tin
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="?ctl=logout">
-                                        dang xuat
-                                    </a>
-                                </li>
-                            <?php else : ?>
-                                <li>
-                                    <a class="dropdown-item" href="<?= ROOT_URL . "?ctl=login" ?>">
-                                        Đăng nhập
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="<?= ROOT_URL . "?ctl=register "?>">
-                                        đăng kí
-                                    </a>
-                                </li>
-                            <?php endif ?>
-                        </ul>
-                    </i>
+                <i>
+                    <a class="fa-regular fa-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?= $_SESSION['user']['FullName'] ?? '' ?>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <?php if (isset($_SESSION['user'])) : ?>
+                            <li>
+                                <a class="dropdown-item" href="<?= ROOT_URL ?>">
+                                    Xem thong tin
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="?ctl=logout">
+                                    dang xuat
+                                </a>
+                            </li>
+                        <?php else : ?>
+                            <li>
+                                <a class="dropdown-item" href="<?= ROOT_URL . "?ctl=login" ?>">
+                                    Đăng nhập
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="<?= ROOT_URL . "?ctl=register " ?>">
+                                    đăng kí
+                                </a>
+                            </li>
+                        <?php endif ?>
+                    </ul>
+                </i>
             </div>
         </div>
         <div class="header-middle">

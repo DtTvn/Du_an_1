@@ -13,7 +13,7 @@
                     <i class="fa-brands fa-instagram"></i>
                </a>
           </div>
-          <div class="noti">Điền đầy đủ Thông Tin vào cho tao</div>
+          <div class="noti">Điền đầy đủ Thông Tin</div>
           <form action="<?= ROOT_URL . '?ctl=register' ?>" method="POST">
                <div class="box-input">
                     <div class="box-user">

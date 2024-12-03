@@ -28,6 +28,16 @@ class Order extends BaseModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    //chi tiết hóa đơn theo user
+    public function findOrderUser($user_id){
+        $sql = "SELECT o.*, FullName, Email, address, Phone
+        FROM orders o JOIN users u ON o.CustomerID=u.id 
+        WHERE o.CustomerID=:CustomerID";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['CustomerID' => $user_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    }
+
     //danh sách sản phẩm của hóa đơn
     public function listOrderDetail($id){
         $sql = "SELECT od.*, ProductName,Image 
