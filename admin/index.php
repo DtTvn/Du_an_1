@@ -39,6 +39,7 @@ match ($ctl) {
         //User
         'listuser' => (new AuthController)->index(),
         'updateuser' => (new AuthController)->updateActive(),
+        'logout' => (new AuthController)->logout(),
 
         //Order
         'list-order' => (new OrderController)->index(),

@@ -71,9 +71,9 @@ class Product extends BaseModel
                 FROM `products` p 
                 JOIN `Categories` c ON p.CategoryID  = c.id 
                 WHERE p.id = :id";
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute(['id' => $id]);
-                return $stmt->fetch(PDO ::FETCH_ASSOC);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     //lấy sản phẩm ko phải table(type=1)
     public function listOtherProduct()
@@ -83,14 +83,22 @@ class Product extends BaseModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    //tìm kiếm sản phẩm theo tên
-    public function search($keyword = null)
+    //tìm kiếm sản phẩm
+    public function filterByNameAndPrice($keyword = '', $minPrice = 0, $maxPrice = PHP_INT_MAX)
     {
-        $sql = "SELECT * FROM products WHERE ProductName LIKE '%$keyword%'";
+        $sql = "SELECT * FROM products 
+            WHERE ProductName LIKE :keyword 
+            AND Price BETWEEN :minPrice AND :maxPrice";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
+        $stmt->execute([
+            'keyword' => '%' . $keyword . '%',
+            'minPrice' => $minPrice,
+            'maxPrice' => $maxPrice,
+        ]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    
     
 }
 // $productModel = new Product();

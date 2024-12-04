@@ -1,16 +1,20 @@
 <?php
 class SearchController {
     public function search() {
-        // Lấy từ khóa tìm kiếm
-        $keyword = $_GET["keyword"];
-        // Lấy dữ liệu tìm được
-        $tables = (new Product)->search($keyword);
-        $categories = (new Category)->all();
-        $title = 'Trang chủ website';
+        // Lấy từ khóa và khoảng giá từ query string
+        $keyword = $_GET["keyword"] ?? '';
+        $minPrice = $_GET["minPrice"] ?? 0;
+        $maxPrice = $_GET["maxPrice"] ?? PHP_INT_MAX;
 
-        // Truyền dữ liệu đúng cách vào view
-        return view("client.search", compact('title', 'categories', 'keyword', 'tables'));
+        // Lọc sản phẩm theo tên và khoảng giá
+        $tables = (new Product)->filterByNameAndPrice($keyword, $minPrice, $maxPrice);
+        $categories = (new Category)->all();
+        $title = 'Trang tìm kiếm';
+
+        // Truyền dữ liệu vào view
+        return view("client.search", compact('title', 'categories', 'keyword', 'tables', 'minPrice', 'maxPrice'));
     }
 }
+
 
 ?>

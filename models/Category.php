@@ -45,5 +45,7 @@
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(['id' => $id]);
         }
+
+        
     }
 ?>

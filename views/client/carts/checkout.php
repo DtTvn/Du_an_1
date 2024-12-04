@@ -96,4 +96,4 @@
     </div>
 </div>
 
-<?php include_once ROOT_DIR . "views/client/footer.php" ?>​23:48/-strong/-heart:>:o:-((:-h
+<?php include_once ROOT_DIR . "views/client/footer.php" ?>

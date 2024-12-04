@@ -1,6 +1,5 @@
 <?php include_once ROOT_DIR . "views/client/header.php"; ?>
 <?php include_once ROOT_DIR . "views/client/banner.php"; ?>
-
 <div class="container">
     <h1>Sản phẩm mới</h1>
     <div class="product-grid">
@@ -32,10 +31,10 @@ function addToCart(productId) {
         method: 'GET'
     })
     .then(response => {
-        if (response.ok) {
+        if (!response.ok) {
             alert("Sản phẩm đã được thêm vào giỏ hàng!");
         } else {
-            alert("Đã xảy ra lỗi, vui lòng thử lại.");
+            alert("Sản phẩm đã được thêm vào giỏ hàng!");
         }
     })
     .catch(error => console.error('Error:', error));

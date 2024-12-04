@@ -1,4 +1,4 @@
-<?php include_once ROOT_DIR . "views/admin/header.php" ?>
+<?php include_once ROOT_DIR . "views/client/header.php" ?>
 <div class="container mt-5">
     <div class="card">
         <div class="card-header bg-dark text-white">
@@ -11,6 +11,7 @@
                 <p><strong>Ngày đặt hàng:</strong>
                     <?= date('d-m-Y H:i:s', strtotime($order['created_at'])) ?>
                 </p>
+                <p><strong>Trạng thái:</strong><span><?= getOrderStatus($order['Status']) ?></span></p>
             </div>
 
             <!-- Thông tin khách hàng -->
@@ -59,31 +60,15 @@
                 </table>
             </div>
 
-            <!-- Cập nhật trạng thái đơn hàng -->
-            <div class="mb-4">
-                <h5>Cập nhật trạng thái đơn hàng</h5>
-                <form action="" method="POST">
-                    <div class="mb-3">
-                        <label for="orderStatus" class="form-label">Trạng thái đơn hàng</label>
-                        <select id="orderStatus" name="status" class="form-select">
-                            <?php foreach ($status as $key => $value): ?>
-                                <option value="<?= $key?>" <?= $order['Status'] == $key ? 'selected' : '' ?> >
-                                    <?= $value?>
-                                </option>
-                            <?php endforeach ?>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+            <div>
+                <a href="<?= ROOT_URL . "?ctl=list-order" ?>">Quay lại danh sách đơn hàng</a>
+                <?php if($order['Status'] == 1) : ?>
+                <form action="" method="post">
+                    <button class="btn btn-danger">Hủy đơn hàng</button>
                 </form>
-            </div>
-
-            <!-- Nút thao tác -->
-            <div class="d-flex justify-content-between">
-                <a href="/admin/orders" class="btn btn-secondary">Quay lại danh sách đơn hàng</a>
-
+                <?php endif?>
             </div>
         </div>
     </div>
 </div>
-
-<?php include_once ROOT_DIR . "views/admin/footer.php" ?>
+<?php include_once ROOT_DIR . "views/client/footer.php" ?>
