@@ -8,17 +8,19 @@ class OrderController{
     public function showOrder(){
         $id = $_GET['id'];
 
+        $message = "";
         // thay đổi trạng thái status
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $status = $_POST['status']; // 'status' là name ở detail
             (new Order)->updateStatus($id,$status); 
+            $message = "cập nhật thành công";
         }
         $order=(new Order)->find($id);
 
         $order_details=(new Order)->listOrderDetail($id);
 
         $status = (new Order)->status_details;
-        return view("admin.orders.detail",compact('order','order_details','status'));
+        return view("admin.orders.detail",compact('order','order_details','status','message'));
     }
 
     //hiển thị danh sách hóa đơn của user theo id
@@ -36,9 +38,11 @@ class OrderController{
     public function detailOrderUser(){
         $id = $_GET['id'];
 
+        $message = "";
         // thay đổi trạng thái status
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             (new Order)->updateStatus($id, 4); 
+            $message = "cập nhật thành công";
         }
         $order=(new Order)->find($id);
 
@@ -46,7 +50,7 @@ class OrderController{
 
         $status = (new Order)->status_details;
         return view("client.users.detail-order",
-        compact('order','order_details','status'));
+        compact('order','order_details','status','message'));
     }
 }
 

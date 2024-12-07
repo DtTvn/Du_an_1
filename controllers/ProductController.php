@@ -27,6 +27,14 @@ class ProductController
         $id = $_GET['id']; // id sanpham
         //Lấy ra sản phẩm theo id
         $product = (new Product)->find($id);
+        //thêm comment
+        if($_SERVER['REQUEST_METHOD'] === "POST"){
+            $data = $_POST;
+            $data['ProductID'] = $id;
+            $data['UserID'] = $_SESSION['user']['id'];
+            (new Comment)->create($data);
+        }
+
         //Lấy tên sản phẩm đưa và title
         $title = $product['ProductName'] ?? '';
         //lấy danh mục
@@ -36,9 +44,12 @@ class ProductController
         $_SESSION['URI'] = $_SERVER['REQUEST_URI'];
 
         //$totalQuantity = (new CartController)->totalQuantityCart();
+
+        // lấy danh sách bình luận
+        $comments = (new Comment)->listCommentInProductClient($id);
         return view(
             'client.products.detail',
-            compact('product', 'title', 'categories')
+            compact('product', 'title', 'categories','comments')
         );
     }
 }

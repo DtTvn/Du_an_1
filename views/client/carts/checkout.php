@@ -1,4 +1,5 @@
 <?php include_once ROOT_DIR . "views/client/header.php" ?>
+<link rel="stylesheet" href="css/checkout.css">
 
 <div class="container mt-5">
     <h1 class="mb-4">Thông tin thanh toán</h1>
@@ -70,26 +71,35 @@
 
         <!-- Thông tin giỏ hàng -->
         <div class="col-md-5">
-            <div class="card">
-                <div class="card-header bg-info text-white">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white text-center">
                     <h5>Thông tin giỏ hàng</h5>
                 </div>
                 <div class="card-body">
-                    <ul class="list-group">
+                    <!-- Danh sách sản phẩm -->
+                    <ul class="list-group list-group-flush">
                         <?php foreach ($carts as $cart) : ?>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-0"><?= $cart['ProductName'] ?></h6>
+                            <li class="list-group-item d-flex align-items-center">
+                                <!-- Hình ảnh sản phẩm -->
+                                <div class="product-image me-3">
+                                    <img src="<?= $cart['Image'] ?>" alt="<?= $cart['ProductName'] ?>" class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
+                                </div>
+                                <!-- Thông tin sản phẩm -->
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1 text-truncate"><?= $cart['ProductName'] ?></h6>
                                     <small class="text-muted">Số lượng: <?= $cart['quantity'] ?></small>
                                 </div>
-                                <span><?= number_format($cart['Price'] * $cart['quantity']) ?></span>
+                                <!-- Giá tiền -->
+                                <span class="fw-bold text-primary"><?= number_format($cart['Price'] * $cart['quantity']) ?> VNĐ</span>
                             </li>
                         <?php endforeach ?>
                     </ul>
                 </div>
                 <!-- Tổng tiền -->
-                <div class="card-footer text-end fw-bold">
-                    Tổng tiền: <span class="text-danger"><?= number_format($totalPriceInOrder) ?> VNĐ</span>
+                <div class="card-footer text-center">
+                    <h5 class="mb-0">
+                        Tổng tiền: <span class="text-danger"><?= number_format($totalPriceInOrder) ?> VNĐ</span>
+                    </h5>
                 </div>
             </div>
         </div>
