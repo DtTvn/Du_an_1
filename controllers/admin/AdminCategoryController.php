@@ -42,7 +42,7 @@
         public function update() {
             $data = $_POST;
             (new Category)->update($data['id'], $data);
-            $_SESSION['message'] = "Cap nhap du lieu thanh cong";
+            $_SESSION['message'] = "Cập nhập dữ liệu thành công";
             header("location: " . ADMIN_URL . '?ctl=listdm');
         }
 
@@ -60,7 +60,7 @@
 
             //Xoa
             (new Category)->delete($id);
-            $_SESSION['message']= "Xoa du lieu thanh cong";
+            $_SESSION['message']= "Xoa dữ liệu thành công";
             header("location: " . ADMIN_URL . "?ctl=listdm");
             return;
         }

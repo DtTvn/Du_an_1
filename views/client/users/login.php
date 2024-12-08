@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/login.css">
 <div class="all-container">
     <div class="box-login">
-        <h2>Sign in</h2>
+        <h2>Đăng nhập</h2>
         <form action="<?= ROOT_URL . '?ctl=login' ?>" method="POST">
             <div class="box-login-icon">
                 <a href="">

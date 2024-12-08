@@ -61,7 +61,7 @@
 
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>Danh sách Danh Mục</h2>
+            <h2>Danh sách danh mục</h2>
             <a href="<?= ADMIN_URL . '?ctl=adddm' ?>" class="btn btn-success btn-lg">+ Thêm danh mục</a>
         </div>
         <div class="table-responsive">
