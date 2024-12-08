@@ -93,8 +93,7 @@
 
             <!-- Nút thao tác -->
             <div class="d-flex justify-content-between">
-                <a href="/admin/orders" class="btn btn-secondary">Quay lại danh sách đơn hàng</a>
-
+                <a href=  "/admin/orders" class="btn btn-secondary">Quay lại danh sách đơn hàng</a>
             </div>
         </div>
     </div>

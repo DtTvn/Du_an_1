@@ -8,23 +8,53 @@ class AdminProductController
       return header("location: " . ROOT_URL);
     }
   }
+
+  // Hiển thị danh sách sản phẩm
   public function index()
   {
     $products = (new Product)->all();
-    //Lây thông báo từ session
+    // Lấy thông báo từ session
     $message = session_flash('message');
     $type = session_flash('type');
 
-    return view('admin.products.list', compact('products', 'message', "type"));
+    return view('admin.products.list', compact('products', 'message', 'type'));
   }
 
-  //Form thêm
+  // Form thêm sản phẩm
   public function add()
   {
     $Categories = (new Category)->all();
     return view('admin.products.add', compact('Categories'));
   }
-  //sửa
+
+  // Thêm sản phẩm
+  public function store()
+  {
+    $data = $_POST;
+    // Nếu người dùng không cập nhật ảnh
+    $image = '';
+    // Nếu người dùng nhập ảnh
+    $file = $_FILES['Image'];
+    if ($file['size'] > 0) {
+      $image = 'images/' . $file['name'];
+      move_uploaded_file($file['tmp_name'], ROOT_DIR . $image);
+    }
+    // Đưa ảnh vào mảng dữ liệu
+    $data['Image'] = $image;
+
+    // Lưu sản phẩm vào cơ sở dữ liệu
+    (new Product)->create($data);
+
+    // Lưu thông báo vào session
+    $_SESSION['message'] = "Thêm sản phẩm thành công";
+    $_SESSION['type'] = "success"; // Thông báo thành công
+
+    // Chuyển hướng về trang danh sách sản phẩm
+    header('location:' . ADMIN_URL . "?ctl=listsp");
+    die;
+  }
+
+  // Hiển thị form sửa sản phẩm
   public function edit()
   {
     $id = $_GET['id'];
@@ -32,51 +62,55 @@ class AdminProductController
     $Categories = (new Category)->all();
     view('admin.products.edit', compact('products', 'Categories'));
   }
-  //lấy dữ liệu từ csdl
-  public function store()
-  {
+
+// Cập nhật sản phẩm
+public function update()
+{
     $data = $_POST;
-    //Nếu người dùng không cập nhật ảnh
+    // Kiểm tra xem người dùng có chọn ảnh mới không
     $image = '';
-    //nếu người dùng nhập ảnh
-    $file = $_FILES['Image'];
-    if ($file['size'] > 0) {
-      $image = 'images/' . $file['name'];
-      move_uploaded_file($file['tmp_name'], ROOT_DIR . $image);
+
+    // Nếu có ảnh mới được tải lên
+    if ($_FILES['Image']['size'] > 0) {
+        $image = 'images/' . $_FILES['Image']['name'];
+        move_uploaded_file($_FILES['Image']['tmp_name'], ROOT_DIR . $image);
+    } else {
+        // Nếu không, giữ lại ảnh cũ
+        $existingProduct = (new Product)->find($data['id']);
+        $image = $existingProduct['Image']; // Giữ lại ảnh cũ
     }
-    //dua anh vaof mangr
+
+    // Đưa ảnh vào mảng dữ liệu
     $data['Image'] = $image;
-    // // luu anh vao csdl
-    dd($data);
-    (new Product)->create($data);
-    header('location:' . ADMIN_URL . "?ctl=listsp");
-    die;
-  }
-  //cập nhật
-  public function update()
-  {
-    $data = $_POST;
-    //Nếu người dùng không cập nhật ảnh
-    $image = '';
-    //nếu người dùng nhập ảnh
-    $file = $_FILES['Image'];
-    if ($file['size'] > 0) {
-      $image = 'images/' . $file['name'];
-      move_uploaded_file($file['tmp_name'], ROOT_DIR . $image);
-    }
-    //dua anh vaof mangr
-    $data['Image'] = $image;
-    // // luu anh vao csdl
-    dd($data);
+
+    // Cập nhật sản phẩm trong cơ sở dữ liệu
     (new Product)->update($data['id'], $data);
-    header("location:" . ADMIN_URL . "?ctl=editsp&id=" . $data['id']);
+
+    // Lưu thông báo vào session
+    $_SESSION['message'] = "Cập nhật sản phẩm thành công";
+    $_SESSION['type'] = "success"; // Thông báo thành công
+
+    // Chuyển hướng về trang danh sách sản phẩm sau khi sửa thành công
+    header("location:" . ADMIN_URL . "?ctl=listsp");
     die;
-  }
-  //xóa
+}
+
+
+
+  // Xóa sản phẩm
   public function delete()
   {
     $id = $_GET['id'];
+
+    // Xóa sản phẩm khỏi cơ sở dữ liệu
     (new Product)->delete($id);
+
+    // Lưu thông báo vào session
+    $_SESSION['message'] = "Xóa sản phẩm thành công";
+    $_SESSION['type'] = "success"; // Thông báo thành công
+
+    // Chuyển hướng về trang danh sách sản phẩm
     header("location:" . ADMIN_URL . "?ctl=listsp");
+    die;
   }
 }
