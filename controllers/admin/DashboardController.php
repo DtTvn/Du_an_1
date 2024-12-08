@@ -24,8 +24,14 @@ class DashboardController {
         // Tính tổng doanh thu
         $totalRevenue = $this->getTotalRevenue();
 
+        // Tính doanh thu trong tháng này
+        $monthlyRevenue = $this->getMonthlyRevenue();
+
         // Tính tổng số đơn hàng
         $totalOrders = $this->getTotalOrders();
+
+        // Tính số đơn hàng trong tháng này
+        $monthlyOrders = $this->getMonthlyOrders();
 
         // Lấy số người dùng mới
         $newUsers = $this->getNewUsers();
@@ -36,7 +42,9 @@ class DashboardController {
         // Truyền dữ liệu vào view
         return view('admin.dashboard', [
             'totalRevenue' => $totalRevenue,
+            'monthlyRevenue' => $monthlyRevenue,
             'totalOrders' => $totalOrders,
+            'monthlyOrders' => $monthlyOrders,
             'newUsers' => $newUsers,
             'recentOrders' => $recentOrders,
         ]);
@@ -50,9 +58,35 @@ class DashboardController {
         return $row['total'] ?? 0;
     }
 
+    // Phương thức lấy doanh thu trong tháng này
+    private function getMonthlyRevenue() {
+        $query = "
+            SELECT SUM(TotalPrice) AS total
+            FROM orders
+            WHERE YEAR(created_at) = YEAR(CURRENT_DATE) 
+              AND MONTH(created_at) = MONTH(CURRENT_DATE)
+        ";
+        $result = $this->db->query($query);
+        $row = $result->fetch();
+        return $row['total'] ?? 0;
+    }
+
     // Phương thức lấy tổng số đơn hàng
     private function getTotalOrders() {
         $query = "SELECT COUNT(*) AS total FROM orders";
+        $result = $this->db->query($query);
+        $row = $result->fetch();
+        return $row['total'] ?? 0;
+    }
+
+    // Phương thức lấy số đơn hàng trong tháng này
+    private function getMonthlyOrders() {
+        $query = "
+            SELECT COUNT(*) AS total
+            FROM orders
+            WHERE YEAR(created_at) = YEAR(CURRENT_DATE) 
+              AND MONTH(created_at) = MONTH(CURRENT_DATE)
+        ";
         $result = $this->db->query($query);
         $row = $result->fetch();
         return $row['total'] ?? 0;
@@ -66,17 +100,18 @@ class DashboardController {
         return $row['total'] ?? 0;
     }
 
-// Phương thức lấy các đơn hàng mới với thông tin khách hàng
-private function getRecentOrders() {
-    $query = "
-        SELECT o.id, u.FullName AS customer_name, o.TotalPrice, o.created_at, o.Status
-        FROM orders o
-        JOIN users u ON o.CustomerID = u.id
-        ORDER BY o.created_at DESC
-        LIMIT 5
-    ";
-    $result = $this->db->query($query);
-    return $result->fetchAll(PDO::FETCH_ASSOC);  // Trả về mảng kết quả
-}
+    // Phương thức lấy các đơn hàng mới với thông tin khách hàng
+    private function getRecentOrders() {
+        $query = "
+            SELECT o.id, u.FullName AS customer_name, o.TotalPrice, o.created_at, o.Status
+            FROM orders o
+            JOIN users u ON o.CustomerID = u.id
+            ORDER BY o.created_at DESC
+            LIMIT 5
+        ";
+        $result = $this->db->query($query);
+        return $result->fetchAll(PDO::FETCH_ASSOC);  // Trả về mảng kết quả
+    }
+    
 }
 ?>

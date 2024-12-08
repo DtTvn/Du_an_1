@@ -4,7 +4,6 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Danh sách người dùng</h2>
         <!-- Thêm nút thêm người dùng nếu cần -->
-        <a href="<?= ADMIN_URL . '?ctl=adduser' ?>" class="btn btn-success btn-lg">+ Thêm người dùng</a>
     </div>
     <div class="table-responsive">
         <table class="table table-striped table-hover align-middle">

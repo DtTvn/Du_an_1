@@ -3,7 +3,7 @@
 <div class="container-fluid mt-4">
     <div class="row">
         <!-- Card: Tổng doanh thu -->
-        <div class="col-md-3">
+        <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Tổng Doanh Thu</h5>
@@ -13,7 +13,7 @@
         </div>
 
         <!-- Card: Tổng số đơn hàng -->
-        <div class="col-md-3">
+        <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Tổng Đơn Hàng</h5>
@@ -23,7 +23,7 @@
         </div>
 
         <!-- Card: Người dùng mới -->
-        <div class="col-md-3">
+        <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Người Dùng Mới</h5>
@@ -37,7 +37,9 @@
     <div class="row mt-4">
         <div class="col-md-12">
             <h3>Biểu đồ Doanh Thu Tháng</h3>
-            <canvas id="revenueChart"></canvas>
+            <div style="height: 400px;">
+                <canvas id="revenueChart"></canvas>
+            </div>
         </div>
     </div>
 
@@ -59,7 +61,7 @@
                     <?php foreach ($recentOrders as $order) : ?>
                         <tr>
                             <td><?= $order['id'] ?></td>
-                            <td><?= $order['customer_name'] ?></td> <!-- Sử dụng customer_name -->
+                            <td><?= $order['customer_name'] ?></td>
                             <td><?= number_format($order['TotalPrice'], 0, ',', '.') ?> VNĐ</td>
                             <td><?= date('d/m/Y', strtotime($order['created_at'])) ?></td>
                             <td><?= getOrderStatus($order['Status']) ?></td>
@@ -80,14 +82,33 @@
     const revenueChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5'], // Các tháng trong năm
+            labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
             datasets: [{
                 label: 'Doanh Thu Tháng',
-                data: [5000000, 7000000, 8000000, 6000000, 7500000], // Doanh thu theo tháng
+                data: [5000000, 7000000, 8000000, 6000000, 7500000, 6500000, 6800000, 7200000, 7900000, 8000000, 8500000, 9000000],
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 2,
                 fill: false
             }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return 'Doanh thu: ' + tooltipItem.raw.toLocaleString() + ' VNĐ';
+                        }
+                    }
+                }
+            }
         }
     });
 </script>

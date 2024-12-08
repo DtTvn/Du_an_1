@@ -3,7 +3,10 @@
 <div class="container">
     <h1>Sản phẩm mới</h1>
     <div class="product-grid">
-        <?php foreach ($tables as $table): ?>
+        <?php
+        // Xáo trộn sản phẩm
+        shuffle($tables);
+        foreach ($tables as $table): ?>
             <div class="product-card">
                 <img src="<?= $table['Image'] ?>" alt="Product Image">
                 <h4 class="product-name"><?= $table['ProductName'] ?></h4>

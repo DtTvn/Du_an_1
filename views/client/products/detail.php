@@ -25,9 +25,9 @@
                 <a href="<?= ROOT_URL . '?ctl=add-cart&id=' . $product['id'] ?>" class="btn btn-primary btn-lg">
                     <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
                 </a>
-                <button class="btn btn-warning btn-lg">
+                <!-- <button class="btn btn-warning btn-lg" onclick="window.location.href='<?= ROOT_URL . '?ctl=cart&action=addCart&id=' . $product['id'] ?>'">
                     <i class="bi bi-bag-check"></i> Mua ngay
-                </button>
+                </button> -->
             </div>
 
             <hr class="mt-5">
@@ -43,7 +43,7 @@
         <div class="comment-list mt-4">
             <?php foreach ($comments as $comment): ?>
                 <div class="mb-3 p-3 rounded shadow-sm bg-light">
-                    <p class="fw-bold mb-1"><?= $comment['FullName'] ?> 
+                    <p class="fw-bold mb-1"><?= $comment['FullName'] ?>
                         <small class="text-muted"><?= date('d-m-Y H:i:s', strtotime($comment['created_at'])) ?></small>
                     </p>
                     <p class="mb-0"><?= $comment['Content'] ?></p>

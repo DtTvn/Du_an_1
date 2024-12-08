@@ -40,12 +40,16 @@
                <div class="button-login">
                     <a href=""><button type="submit">Đăng ký</button></a> 
                </div>
-               
                <div class="box-forgot-password">
                     <div>
-                         <a href="">Forgot your password ?</a>
+                         <a href="<?= ROOT_URL . '?ctl=login' ?>">Đăng nhập</a>
+                    </div>
+                    <div>
+                         <a href="<?= ROOT_URL  ?>">Trang chủ</a>
                     </div>
                </div>
           </form>
      </div>
+     <!-- Hình nền dưới phần đăng ký -->
+     <div class="background-image"></div>
 </div>

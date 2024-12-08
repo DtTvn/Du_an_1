@@ -1,6 +1,6 @@
-<?php include_once ROOT_DIR . "views/client/header.php"; ?>
-<?php include_once ROOT_DIR . "views/client/banner.php"; ?>
+<?php include_once ROOT_DIR . "views/client/header.php" ?>
 <link rel="stylesheet" href="css/camhung.css">
+
 <div class="container">
           <header>
      <h1>Ý TƯỞNG KHÔNG GIAN SỐNG</h1>
